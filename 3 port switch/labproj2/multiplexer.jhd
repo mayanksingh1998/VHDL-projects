@@ -1,0 +1,3 @@
+MODULE multiplexer
+	SUBMODULE test
+		INSTANCE XLXI_10

@@ -1,0 +1,1 @@
+sch2sym -intstyle ise -family artix7 -refsym reglogic2 /home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/reglogic2.sch /home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/reglogic2.sym 

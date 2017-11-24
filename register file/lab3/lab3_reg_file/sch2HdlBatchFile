@@ -1,0 +1,5 @@
+sch2hdl,-intstyle,ise,-family,artix7,-flat,-suppress,-vhdl,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file.vhf,-w,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file.sch
+sch2hdl,-intstyle,ise,-family,artix7,-flat,-suppress,-vhdl,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/regfile.vhf,-w,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/regfile.sch
+sch2hdl,-intstyle,ise,-family,artix7,-flat,-suppress,-vhdl,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/registerlogic.vhf,-w,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/registerlogic.sch
+sch2hdl,-intstyle,ise,-family,artix7,-flat,-suppress,-vhdl,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file.vhf,-w,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file.sch
+sch2hdl,-intstyle,ise,-family,artix7,-flat,-suppress,-vhdl,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/regfile.vhf,-w,/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/regfile.sch

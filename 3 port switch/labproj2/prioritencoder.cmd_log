@@ -1,0 +1,7 @@
+xst -intstyle ise -ifn "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.xst" -ofn "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -bm lab2_port_switch.bmm -p xc7a200t-fbg484-3 prioritencoder.ngc prioritencoder.ngd  
+map -intstyle ise -p xc7a200t-fbg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o prioritencoder_map.ncd prioritencoder.ngd prioritencoder.pcf 
+par -w -intstyle ise -ol high -mt off prioritencoder_map.ncd prioritencoder.ncd prioritencoder.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml prioritencoder.twx prioritencoder.ncd -o prioritencoder.twr prioritencoder.pcf 
+sch2sym -intstyle ise -family artix7 -refsym prioritencoder C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.sch C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.sym 
+sch2sym -intstyle ise -family artix7 -refsym prioritencoder C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.sch C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/prioritencoder.sym 

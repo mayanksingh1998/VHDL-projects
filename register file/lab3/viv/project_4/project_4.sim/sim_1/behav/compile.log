@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/viv/project_4/project_4.srcs/sources_1/imports/lab3_reg_file/lab3_reg_file.vhf" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity M8_1E_HXILINX_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity D3_8E_HXILINX_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity registerlogic_MUSER_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity regfile_MUSER_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity mux8_4_MUSER_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity xor1_MUSER_lab3_reg_file
+INFO: [VRFC 10-307] analyzing entity lab3_reg_file
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/viv/project_4/project_4.srcs/sim_1/imports/lab3_reg_file/lab3_reg_file_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity lab3_reg_file_tb

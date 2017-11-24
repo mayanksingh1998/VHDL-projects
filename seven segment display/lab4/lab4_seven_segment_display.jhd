@@ -1,0 +1,7 @@
+MODULE lab4_seven_segment_display
+	SUBMODULE binaryto7segment
+		INSTANCE XLXI_6
+	SUBMODULE clockdivider
+		INSTANCE XLXI_4
+	SUBMODULE mux16_4
+		INSTANCE XLXI_5

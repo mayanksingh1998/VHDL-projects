@@ -1,0 +1,37 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file_isim_beh.exe -prj /home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file_beh.prj work.lab3_reg_file 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/registerlogic.vhf" into library work
+Parsing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/xor1.vhf" into library work
+Parsing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/regfile.vhf" into library work
+Parsing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/mux8_4.vhf" into library work
+Parsing VHDL file "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file.vhf" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 113152 KB
+Fuse CPU Usage: 1160 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package numeric_std
+Compiling package vcomponents
+Compiling architecture xor2_v of entity XOR2 [xor2_default]
+Compiling architecture behavioral of entity xor1_MUSER_lab3_reg_file [xor1_muser_lab3_reg_file_default]
+Compiling architecture and2_v of entity AND2 [and2_default]
+Compiling architecture or2_v of entity OR2 [or2_default]
+Compiling architecture inv_v of entity INV [inv_default]
+Compiling architecture behavioral of entity mux8_4_MUSER_lab3_reg_file [mux8_4_muser_lab3_reg_file_defau...]
+Compiling architecture d3_8e_hxilinx_lab3_reg_file_v of entity D3_8E_HXILINX_lab3_reg_file [d3_8e_hxilinx_lab3_reg_file_defa...]
+Compiling architecture m8_1e_hxilinx_lab3_reg_file_v of entity M8_1E_HXILINX_lab3_reg_file [m8_1e_hxilinx_lab3_reg_file_defa...]
+Compiling architecture fd_v of entity FD [\FD('0')\]
+Compiling architecture behavioral of entity registerlogic_MUSER_lab3_reg_file [registerlogic_muser_lab3_reg_fil...]
+Compiling architecture behavioral of entity regfile_MUSER_lab3_reg_file [regfile_muser_lab3_reg_file_defa...]
+Compiling architecture behavioral of entity lab3_reg_file
+Time Resolution for simulation is 1ps.
+Waiting for 6 sub-compilation(s) to finish...
+Compiled 27 VHDL Units
+Built simulation executable /home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file_isim_beh.exe
+Fuse Memory Usage: 685892 KB
+Fuse CPU Usage: 1250 ms
+GCC CPU Usage: 460 ms

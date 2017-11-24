@@ -1,0 +1,68 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Sep 10 23:53:51 2017
+| Host         : ubuntu running 64-bit Ubuntu 14.04.5 LTS
+| Command      : report_control_sets -verbose -file lab3_reg_file_control_sets_placed.rpt
+| Design       : lab3_reg_file
+| Device       : xc7a35t
+------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |     8 |
+| Unused register locations in slices containing registers |    32 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              32 |           10 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |               0 |            0 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------+---------------+------------------+------------------+----------------+
+|    Clock Signal    | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
++--------------------+---------------+------------------+------------------+----------------+
+|  XLXI_134/XLXN_317 |               |                  |                1 |              4 |
+|  XLXI_134/XLXN_312 |               |                  |                2 |              4 |
+|  XLXI_134/XLXN_313 |               |                  |                1 |              4 |
+|  XLXI_134/XLXN_314 |               |                  |                2 |              4 |
+|  XLXI_134/XLXN_315 |               |                  |                1 |              4 |
+|  XLXI_134/XLXN_318 |               |                  |                1 |              4 |
+|  XLXI_134/XLXN_319 |               |                  |                1 |              4 |
+|  XLXI_134/XLXN_316 |               |                  |                1 |              4 |
++--------------------+---------------+------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 4      |                     8 |
++--------+-----------------------+
+
+

@@ -1,0 +1,198 @@
+entity BUS_or_and is
+port(
+Y1: in std_logic_vector(3 downto 0); 
+Y2: in std_logic_vector(3 downto 0);
+Z1:out std_logic_vector(3 downto 0);
+Z2:out std_logic_vector(3 downto 0 )
+);
+end BUS_or_and;
+architecture Behavioral of BUS_or_and is
+begin
+process(Y1,Y2)
+begin
+for I in 3 to 0 loop
+Z1(I)<=Y1(I) OR Y2(I);
+Z2(I)<=Y1(I) AND Y2(I);
+end loop;
+end process;
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA_adder is
+  Port (
+   A : in std_logic;
+  B : in std_logic;
+  C : in std_logic;
+  S : out std_logic
+   );
+end CLA_adder;
+
+architecture Behavioral of CLA_adder is
+
+begin
+S <= A XOR B XOR C;
+
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA_1UNIT is
+  Port (
+  P : in std_logic; 
+  G : in std_logic;
+  C1: in std_logic;
+  C2: out std_logic
+  
+   );
+end CLA_1UNIT;
+
+architecture Behavioral of CLA_1UNIT is
+
+begin
+C2<=(P AND C1)OR G;
+end Behavioral;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA_UNIT is
+  Port (
+  P1 : in std_logic_vector(3 downto 0); 
+  G1: in std_logic_vector(3 downto 0);
+  C3: in std_logic;
+  C4: out std_logic_vector(4 downto 0)
+  
+   );
+end CLA_UNIT;
+
+architecture Behavioral of CLA_UNIT is
+signal t: std_logic_vector(3 downto 0);
+component CLA_1UNIT
+  Port (
+  P : in std_logic; 
+  G : in std_logic;
+  C1: in std_logic;
+  C2: out std_logic
+    );
+end component;
+begin
+C4(0)<=C3;
+U1 : CLA_1UNIT
+Port map (
+P => P1(0), 
+  G =>G1(0),
+  C1 =>C3,
+  C2=>t(0)
+);
+C4(1)<=t(0);
+U2 : CLA_1UNIT
+Port map (
+P => P1(1), 
+  G =>G1(1),
+  C1 =>t(0),
+  C2=>t(1)
+);
+C4(2)<=t(1);
+U3 : CLA_1UNIT
+Port map (
+P => P1(2), 
+  G =>G1(3),
+  C1 =>t(1),
+  C2=>t(2)
+);
+C4(3)<=t(2);
+U4 : CLA_1UNIT
+Port map (
+P => P1(3), 
+  G =>G1(3),
+  C1 =>t(2),
+  C2=>t(3)
+);
+C4(4)<=t(3);
+
+
+
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA is
+  Port (
+  A1 : in std_logic_vector(3 downto 0); 
+  B1: in std_logic_vector(3 downto 0);
+  C5: in std_logic;
+  C6: out std_logic;
+  S1: out std_logic_vector(3 downto 0)
+  );
+end CLA;
+architecture Behavioral of CLA is
+signal c:std_logic_vector(4 downto 0);
+signal z1:std_logic_vector(3 downto 0);
+signal z2:std_logic_vector(3 downto 0);
+component CLA_adder 
+  Port (
+   A : in std_logic;
+  B : in std_logic;
+  C : in std_logic;
+  S : out std_logic
+   );
+end component;
+component CLA_UNIT is
+  Port (
+  P1 : in std_logic_vector(3 downto 0); 
+  G1: in std_logic_vector(3 downto 0);
+  C3: in std_logic;
+  C4: out std_logic_vector(4 downto 0)
+  );
+end component;
+component BUS_or_and 
+Port (
+Y1: in std_logic_vector(3 downto 0); 
+Y2: in std_logic_vector(3 downto 0);
+Z1:out std_logic_vector(3 downto 0);
+Z2:out std_logic_vector(3 downto 0 )
+);
+end component;
+begin
+BU: BUS_or_and
+ Port map (
+Y1=>A1,
+Y2=>B1,
+Z1=>z1,
+Z2=>z2
+);
+
+CO1: CLA_UNIT
+  Port map (
+  P1 => z1,
+  G1 => z2,
+  C3 =>C5,
+  C4 (4 downto 0) =>c(4 downto 0)
+   );
+CO2: CLA_adder 
+  Port map (
+  A =>A1(0),
+  B =>B1(0),
+  C =>c(0),
+  S =>S1(0)
+   );
+CO3: CLA_adder 
+  Port map (
+ A =>A1(1),
+  B =>B1(1),
+  C =>c(1),
+  S =>S1(1)
+   );
+CO4: CLA_adder 
+  Port map (
+ A =>A1(2),
+  B =>B1(2),
+  C =>c(2),
+  S =>S1(2)
+   );
+CO5: CLA_adder 
+  Port map (
+  A =>A1(3),
+  B =>B1(3),
+  C =>c(3),
+  S =>S1(3)
+   );
+	C6<= c(4);
+end Behavioral;

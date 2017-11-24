@@ -1,0 +1,17 @@
+MODULE regfile
+	SUBMODULE registerlogic
+		INSTANCE XLXI_183
+	SUBMODULE registerlogic
+		INSTANCE XLXI_184
+	SUBMODULE registerlogic
+		INSTANCE XLXI_185
+	SUBMODULE registerlogic
+		INSTANCE XLXI_186
+	SUBMODULE registerlogic
+		INSTANCE XLXI_187
+	SUBMODULE registerlogic
+		INSTANCE XLXI_188
+	SUBMODULE registerlogic
+		INSTANCE XLXI_189
+	SUBMODULE registerlogic
+		INSTANCE XLXI_190

@@ -1,0 +1,3 @@
+vhdl work "xor1.vhf"
+vhdl work "mux8_4.vhf"
+vhdl work "lab3_reg_file.vhf"

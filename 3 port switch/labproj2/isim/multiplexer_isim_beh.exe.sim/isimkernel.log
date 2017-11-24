@@ -1,0 +1,28 @@
+Command line:
+   multiplexer_isim_beh.exe
+     -simmode  gui
+     -simrunnum  1
+     -socket  63878
+
+Tue Aug 22 14:50:58 2017
+
+
+ Elaboration Time: 0.046875 sec
+
+ Current Memory Usage: 846.225 Meg
+
+ Total Signals          : 74
+ Total Nets             : 40
+ Total Signal Drivers   : 9
+ Total Blocks           : 14
+ Total Primitive Blocks : 12
+ Total Processes        : 9
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 523
+
+ Total Simulation Time: 0.0625 sec
+
+ Current Memory Usage: 688.939 Meg
+
+Tue Aug 22 14:53:14 2017
+

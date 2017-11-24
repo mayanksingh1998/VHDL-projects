@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/Prarthit/Desktop/sem3/xilin/labp4/e_isim_beh.exe" -prj "C:/Users/Prarthit/Desktop/sem3/xilin/labp4/e_beh.prj" "work.e" 

@@ -1,0 +1,28 @@
+Command line:
+   lab4_seven_segment_display_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  54544
+
+Sat Sep 23 10:35:31 2017
+
+
+ Elaboration Time: 0.0625 sec
+
+ Current Memory Usage: 850.219 Meg
+
+ Total Signals          : 881
+ Total Nets             : 272
+ Total Signal Drivers   : 226
+ Total Blocks           : 219
+ Total Primitive Blocks : 188
+ Total Processes        : 226
+ Total Traceable Variables  : 37
+ Total Scalar Nets and Variables : 779
+
+ Total Simulation Time: 0.125 sec
+
+ Current Memory Usage: 692.933 Meg
+
+Sat Sep 23 10:37:27 2017
+

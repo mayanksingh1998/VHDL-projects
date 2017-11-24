@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<generated_project xmlns="http://www.xilinx.com/XMLSchema" xmlns:xil_pn="http://www.xilinx.com/XMLSchema">
+
+  <!--                                                          -->
+
+  <!--             For tool use only. Do not edit.              -->
+
+  <!--                                                          -->
+
+  <!-- ProjectNavigator created generated project file.         -->
+
+  <!-- For use in tracking generated file and other information -->
+
+  <!-- allowing preservation of process status.                 -->
+
+  <!--                                                          -->
+
+  <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved. -->
+
+  <version xmlns="http://www.xilinx.com/XMLSchema">11.1</version>
+
+  <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="labp4.xise"/>
+
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="a.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="b.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="binaryto7segment.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="binaryto7segment_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="c.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="clockdivider.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="d.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="dffnew.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="dffnew_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="e.vhf"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="e_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="e_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="e_isim_beh.wdb"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="f.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="freqdivide.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="freqdivide_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="g.vhf"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="lab4_seven_segment_display.vhf"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="lab4_seven_segment_display_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="lab4_seven_segment_display_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="lab4_seven_segment_display_isim_beh.wdb"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="mux16_4.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="mux16_4_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="mux8_4.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="mux8_4_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="ringcounter.vhf"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="ringcounter_isim_beh.exe"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_VHDL" xil_pn:name="tempooooo.vhf"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="tempooooo_beh.prj"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="tempooooo_isim_beh.exe"/>
+    <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="tempooooo_isim_beh.wdb"/>
+    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
+  </files>
+
+  <transforms xmlns="http://www.xilinx.com/XMLSchema">
+    <transform xil_pn:end_ts="1505896251" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1505896249">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1505896251" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1505896251">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1508218157" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="7090767432045259826" xil_pn:start_ts="1508218157">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1508218160" xil_pn:in_ck="1209680184479269221" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="5939727560771130640" xil_pn:start_ts="1508218157">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="a.vhf"/>
+      <outfile xil_pn:name="b.vhf"/>
+      <outfile xil_pn:name="binaryto7segment.vhf"/>
+      <outfile xil_pn:name="c.vhf"/>
+      <outfile xil_pn:name="clockdivider.vhf"/>
+      <outfile xil_pn:name="d.vhf"/>
+      <outfile xil_pn:name="dffnew.vhf"/>
+      <outfile xil_pn:name="e.vhf"/>
+      <outfile xil_pn:name="f.vhf"/>
+      <outfile xil_pn:name="freqdivide.vhf"/>
+      <outfile xil_pn:name="g.vhf"/>
+      <outfile xil_pn:name="lab4_seven_segment_display.vhf"/>
+      <outfile xil_pn:name="mux16_4.vhf"/>
+      <outfile xil_pn:name="mux8_4.vhf"/>
+      <outfile xil_pn:name="ringcounter.vhf"/>
+    </transform>
+    <transform xil_pn:end_ts="1506003168" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="-8627242396131903561" xil_pn:start_ts="1506003168">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+    </transform>
+    <transform xil_pn:end_ts="1508218160" xil_pn:in_ck="-1200967537898316577" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1508218160">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <outfile xil_pn:name="a.vhf"/>
+      <outfile xil_pn:name="b.vhf"/>
+      <outfile xil_pn:name="binaryto7segment.vhf"/>
+      <outfile xil_pn:name="c.vhf"/>
+      <outfile xil_pn:name="clockdivider.vhf"/>
+      <outfile xil_pn:name="d.vhf"/>
+      <outfile xil_pn:name="dffnew.vhf"/>
+      <outfile xil_pn:name="e.vhf"/>
+      <outfile xil_pn:name="f.vhf"/>
+      <outfile xil_pn:name="freqdivide.vhf"/>
+      <outfile xil_pn:name="g.vhf"/>
+      <outfile xil_pn:name="lab4_seven_segment_display.vhf"/>
+      <outfile xil_pn:name="mux16_4.vhf"/>
+      <outfile xil_pn:name="mux8_4.vhf"/>
+      <outfile xil_pn:name="ringcounter.vhf"/>
+    </transform>
+    <transform xil_pn:end_ts="1508218167" xil_pn:in_ck="-1200967537898316577" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="5825781686814076637" xil_pn:start_ts="1508218160">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="e_beh.prj"/>
+      <outfile xil_pn:name="e_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
+    </transform>
+    <transform xil_pn:end_ts="1508218167" xil_pn:in_ck="-6016151728158020026" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="-3060873397823906614" xil_pn:start_ts="1508218167">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
+      <outfile xil_pn:name="e_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
+    </transform>
+  </transforms>
+
+</generated_project>

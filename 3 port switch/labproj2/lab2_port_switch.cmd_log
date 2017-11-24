@@ -1,0 +1,5 @@
+xst -intstyle ise -ifn "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/lab2_port_switch.xst" -ofn "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/lab2_port_switch.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -bm lab2_port_switch.bmm -p xc7a200t-fbg484-3 lab2_port_switch.ngc lab2_port_switch.ngd  
+map -intstyle ise -p xc7a200t-fbg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o lab2_port_switch_map.ncd lab2_port_switch.ngd lab2_port_switch.pcf 
+par -w -intstyle ise -ol high -mt off lab2_port_switch_map.ncd lab2_port_switch.ncd lab2_port_switch.pcf 
+trce -intstyle ise -v 3 -s 3 -n 3 -fastpaths -xml lab2_port_switch.twx lab2_port_switch.ncd -o lab2_port_switch.twr lab2_port_switch.pcf 

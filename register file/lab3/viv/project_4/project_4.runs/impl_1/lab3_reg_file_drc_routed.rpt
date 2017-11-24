@@ -1,0 +1,157 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Sep 10 23:54:04 2017
+| Host         : ubuntu running 64-bit Ubuntu 14.04.5 LTS
+| Command      : report_drc -file lab3_reg_file_drc_routed.rpt -pb lab3_reg_file_drc_routed.pb -rpx lab3_reg_file_drc_routed.rpx
+| Design       : lab3_reg_file
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 16
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| PDRC-153    | Warning  | Gated clock check                                           | 8          |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 8          |
++-------------+----------+-------------------------------------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+PDRC-153#1 Warning
+Gated clock check  
+Net XLXI_134/XLXN_312 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_89/O, cell XLXI_134/XLXI_89. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net XLXI_134/XLXN_313 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_90/O, cell XLXI_134/XLXI_90. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net XLXI_134/XLXN_314 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_91/O, cell XLXI_134/XLXI_91. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net XLXI_134/XLXN_315 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_92/O, cell XLXI_134/XLXI_92. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net XLXI_134/XLXN_316 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_93/O, cell XLXI_134/XLXI_93. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net XLXI_134/XLXN_317 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_94/O, cell XLXI_134/XLXI_94. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#7 Warning
+Gated clock check  
+Net XLXI_134/XLXN_318 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_95/O, cell XLXI_134/XLXI_95. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#8 Warning
+Gated clock check  
+Net XLXI_134/XLXN_319 is a gated clock net sourced by a combinational pin XLXI_134/XLXI_96/O, cell XLXI_134/XLXI_96. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_89 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_183/XLXI_1 {FDRE}
+    XLXI_134/XLXI_183/XLXI_4 {FDRE}
+    XLXI_134/XLXI_183/XLXI_2 {FDRE}
+    XLXI_134/XLXI_183/XLXI_3 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#2 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_90 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_184/XLXI_4 {FDRE}
+    XLXI_134/XLXI_184/XLXI_2 {FDRE}
+    XLXI_134/XLXI_184/XLXI_3 {FDRE}
+    XLXI_134/XLXI_184/XLXI_1 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#3 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_91 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_185/XLXI_2 {FDRE}
+    XLXI_134/XLXI_185/XLXI_4 {FDRE}
+    XLXI_134/XLXI_185/XLXI_1 {FDRE}
+    XLXI_134/XLXI_185/XLXI_3 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#4 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_92 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_186/XLXI_1 {FDRE}
+    XLXI_134/XLXI_186/XLXI_4 {FDRE}
+    XLXI_134/XLXI_186/XLXI_2 {FDRE}
+    XLXI_134/XLXI_186/XLXI_3 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#5 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_93 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_187/XLXI_3 {FDRE}
+    XLXI_134/XLXI_187/XLXI_4 {FDRE}
+    XLXI_134/XLXI_187/XLXI_1 {FDRE}
+    XLXI_134/XLXI_187/XLXI_2 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#6 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_94 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_188/XLXI_3 {FDRE}
+    XLXI_134/XLXI_188/XLXI_4 {FDRE}
+    XLXI_134/XLXI_188/XLXI_1 {FDRE}
+    XLXI_134/XLXI_188/XLXI_2 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#7 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_95 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_189/XLXI_2 {FDRE}
+    XLXI_134/XLXI_189/XLXI_1 {FDRE}
+    XLXI_134/XLXI_189/XLXI_3 {FDRE}
+    XLXI_134/XLXI_189/XLXI_4 {FDRE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#8 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT XLXI_134/XLXI_96 is driving clock pin of 4 cells. This could lead to large hold time violations. First few involved cells are:
+    XLXI_134/XLXI_190/XLXI_4 {FDRE}
+    XLXI_134/XLXI_190/XLXI_1 {FDRE}
+    XLXI_134/XLXI_190/XLXI_2 {FDRE}
+    XLXI_134/XLXI_190/XLXI_3 {FDRE}
+
+Related violations: <none>
+
+

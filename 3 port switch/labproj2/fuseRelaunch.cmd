@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/lab2_port_switch_isim_beh.exe" -prj "C:/Users/Prarthit/Desktop/sem3/xilin/labproj2/lab2_port_switch_beh.prj" "work.lab2_port_switch" 

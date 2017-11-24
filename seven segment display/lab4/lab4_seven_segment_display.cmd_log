@@ -1,0 +1,3 @@
+xst -intstyle ise -ifn "C:/Users/Prarthit/Desktop/sem3/xilin/labp4/lab4_seven_segment_display.xst" -ofn "C:/Users/Prarthit/Desktop/sem3/xilin/labp4/lab4_seven_segment_display.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc7a200t-fbg484-3 lab4_seven_segment_display.ngc lab4_seven_segment_display.ngd  
+map -intstyle ise -p xc7a200t-fbg484-3 -w -logic_opt off -ol high -t 1 -xt 0 -register_duplication off -r 4 -mt off -ir off -pr off -lc off -power off -o lab4_seven_segment_display_map.ncd lab4_seven_segment_display.ngd lab4_seven_segment_display.pcf 

@@ -1,0 +1,1481 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Sep 10 23:54:04 2017
+| Host         : ubuntu running 64-bit Ubuntu 14.04.5 LTS
+| Command      : report_timing_summary -warn_on_violation -max_paths 10 -file lab3_reg_file_timing_summary_routed.rpt -rpx lab3_reg_file_timing_summary_routed.rpx
+| Design       : lab3_reg_file
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.16 2016-11-09
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  false
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock
+2. checking constant_clock
+3. checking pulse_width_clock
+4. checking unconstrained_internal_endpoints
+5. checking no_input_delay
+6. checking no_output_delay
+7. checking multiple_clock
+8. checking generated_clocks
+9. checking loops
+10. checking partial_input_delay
+11. checking partial_output_delay
+12. checking latch_loops
+
+1. checking no_clock
+--------------------
+ There are 0 register/latch pins with no clock.
+
+
+2. checking constant_clock
+--------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock
+-----------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints
+--------------------------------------------
+ There are 0 pins that are not constrained for maximum delay.
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay
+--------------------------
+ There are 11 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay
+---------------------------
+ There are 12 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock
+--------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks
+----------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops
+-----------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay
+--------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay
+---------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops
+------------------------
+ There are 0 combinational latch loops in the design through latch input
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+      4.039        0.000                      0                   32        0.812        0.000                      0                   32        4.500        0.000                       0                    32  
+
+
+All user specified timing constraints are met.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+Clock        Waveform(ns)       Period(ns)      Frequency(MHz)
+-----        ------------       ----------      --------------
+sys_clk_pin  {0.000 5.000}      10.000          100.000         
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin         4.039        0.000                      0                   32        0.812        0.000                      0                   32        4.500        0.000                       0                    32  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  sys_clk_pin
+  To Clock:  sys_clk_pin
+
+Setup :            0  Failing Endpoints,  Worst Slack        4.039ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.812ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        4.500ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             4.039ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_185/XLXI_2/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_184/XLXI_2/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.417ns  (logic 1.339ns (24.717%)  route 4.078ns (75.283%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.400ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.286ns = ( 13.286 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.756ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.604     3.045    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.169 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.587     3.756    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_2/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y20          FDRE (Prop_fdre_C_Q)         0.456     4.212 r  XLXI_134/XLXI_185/XLXI_2/Q
+                         net (fo=2, routed)           0.813     5.025    XLXI_134/XLXI_186/q1
+    SLICE_X3Y19          LUT6 (Prop_lut6_I1_O)        0.124     5.149 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.149    XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2_n_0
+    SLICE_X3Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.361 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_1/O
+                         net (fo=2, routed)           1.167     6.528    XLXI_132/r2[1]
+    SLICE_X2Y23          LUT2 (Prop_lut2_I0_O)        0.299     6.827 r  XLXI_132/XLXI_2/O
+                         net (fo=2, routed)           0.322     7.150    XLXI_133/xore[1]
+    SLICE_X4Y23          LUT2 (Prop_lut2_I1_O)        0.124     7.274 r  XLXI_133/XLXI_4/O
+                         net (fo=1, routed)           0.162     7.435    XLXI_133/XLXN_24
+    SLICE_X4Y23          LUT2 (Prop_lut2_I0_O)        0.124     7.559 r  XLXI_133/XLXI_10/O
+                         net (fo=8, routed)           1.614     9.174    XLXI_134/XLXI_184/d1
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.364    12.735    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.100    12.835 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.452    13.286    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_2/C
+                         clock pessimism              0.070    13.357    
+                         clock uncertainty           -0.035    13.321    
+    SLICE_X0Y19          FDRE (Setup_fdre_C_D)       -0.109    13.212    XLXI_134/XLXI_184/XLXI_2
+  -------------------------------------------------------------------
+                         required time                         13.212    
+                         arrival time                          -9.174    
+  -------------------------------------------------------------------
+                         slack                                  4.039    
+
+Slack (MET) :             4.064ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_184/XLXI_4/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_186/XLXI_4/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.502ns  (logic 1.475ns (26.808%)  route 4.027ns (73.192%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.356ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.276ns = ( 13.276 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.702ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.609     3.050    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.174 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.528     3.702    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y19          FDRE (Prop_fdre_C_Q)         0.419     4.121 r  XLXI_134/XLXI_184/XLXI_4/Q
+                         net (fo=2, routed)           1.171     5.292    XLXI_134/XLXI_186/XLXI_4_1
+    SLICE_X1Y19          LUT6 (Prop_lut6_I3_O)        0.297     5.589 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.589    XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2_n_0
+    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.801 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           0.598     6.399    XLXI_132/r2[3]
+    SLICE_X0Y20          LUT2 (Prop_lut2_I0_O)        0.299     6.698 r  XLXI_132/XLXI_4/O
+                         net (fo=2, routed)           0.465     7.163    XLXI_133/xore[3]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.287 r  XLXI_133/XLXI_8/O
+                         net (fo=1, routed)           0.674     7.961    XLXI_133/XLXN_28
+    SLICE_X4Y21          LUT2 (Prop_lut2_I0_O)        0.124     8.085 r  XLXI_133/XLXI_12/O
+                         net (fo=8, routed)           1.118     9.204    XLXI_134/XLXI_186/d3
+    SLICE_X1Y19          FDRE                                         r  XLXI_134/XLXI_186/XLXI_4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.047    12.418    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.518 r  XLXI_134/XLXI_92/O
+                         net (fo=4, routed)           0.758    13.276    XLXI_134/XLXI_186/XLXN_315
+    SLICE_X1Y19          FDRE                                         r  XLXI_134/XLXI_186/XLXI_4/C
+                         clock pessimism              0.070    13.346    
+                         clock uncertainty           -0.035    13.311    
+    SLICE_X1Y19          FDRE (Setup_fdre_C_D)       -0.043    13.268    XLXI_134/XLXI_186/XLXI_4
+  -------------------------------------------------------------------
+                         required time                         13.268    
+                         arrival time                          -9.204    
+  -------------------------------------------------------------------
+                         slack                                  4.064    
+
+Slack (MET) :             4.084ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_184/XLXI_4/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_187/XLXI_4/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.237ns  (logic 1.475ns (28.167%)  route 3.762ns (71.833%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.631ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.001ns = ( 13.001 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.702ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.609     3.050    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.174 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.528     3.702    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y19          FDRE (Prop_fdre_C_Q)         0.419     4.121 r  XLXI_134/XLXI_184/XLXI_4/Q
+                         net (fo=2, routed)           1.171     5.292    XLXI_134/XLXI_186/XLXI_4_1
+    SLICE_X1Y19          LUT6 (Prop_lut6_I3_O)        0.297     5.589 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.589    XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2_n_0
+    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.801 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           0.598     6.399    XLXI_132/r2[3]
+    SLICE_X0Y20          LUT2 (Prop_lut2_I0_O)        0.299     6.698 r  XLXI_132/XLXI_4/O
+                         net (fo=2, routed)           0.465     7.163    XLXI_133/xore[3]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.287 r  XLXI_133/XLXI_8/O
+                         net (fo=1, routed)           0.674     7.961    XLXI_133/XLXN_28
+    SLICE_X4Y21          LUT2 (Prop_lut2_I0_O)        0.124     8.085 r  XLXI_133/XLXI_12/O
+                         net (fo=8, routed)           0.853     8.938    XLXI_134/XLXI_187/d3
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.012    12.383    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.483 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.517    13.001    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_4/C
+                         clock pessimism              0.070    13.071    
+                         clock uncertainty           -0.035    13.035    
+    SLICE_X2Y19          FDRE (Setup_fdre_C_D)       -0.013    13.022    XLXI_134/XLXI_187/XLXI_4
+  -------------------------------------------------------------------
+                         required time                         13.022    
+                         arrival time                          -8.938    
+  -------------------------------------------------------------------
+                         slack                                  4.084    
+
+Slack (MET) :             4.103ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_185/XLXI_4/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_184/XLXI_4/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.419ns  (logic 1.339ns (24.710%)  route 4.080ns (75.290%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.400ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.286ns = ( 13.286 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.756ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.604     3.045    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.169 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.587     3.756    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y20          FDRE (Prop_fdre_C_Q)         0.456     4.212 r  XLXI_134/XLXI_185/XLXI_4/Q
+                         net (fo=2, routed)           1.224     5.436    XLXI_134/XLXI_186/q3
+    SLICE_X1Y19          LUT6 (Prop_lut6_I1_O)        0.124     5.560 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.560    XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2_n_0
+    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.772 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           0.598     6.370    XLXI_132/r2[3]
+    SLICE_X0Y20          LUT2 (Prop_lut2_I0_O)        0.299     6.669 r  XLXI_132/XLXI_4/O
+                         net (fo=2, routed)           0.465     7.135    XLXI_133/xore[3]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.259 r  XLXI_133/XLXI_8/O
+                         net (fo=1, routed)           0.674     7.933    XLXI_133/XLXN_28
+    SLICE_X4Y21          LUT2 (Prop_lut2_I0_O)        0.124     8.057 r  XLXI_133/XLXI_12/O
+                         net (fo=8, routed)           1.118     9.175    XLXI_134/XLXI_184/d3
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.364    12.735    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.100    12.835 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.452    13.286    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/C
+                         clock pessimism              0.070    13.357    
+                         clock uncertainty           -0.035    13.321    
+    SLICE_X0Y19          FDRE (Setup_fdre_C_D)       -0.043    13.278    XLXI_134/XLXI_184/XLXI_4
+  -------------------------------------------------------------------
+                         required time                         13.278    
+                         arrival time                          -9.175    
+  -------------------------------------------------------------------
+                         slack                                  4.103    
+
+Slack (MET) :             4.152ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_185/XLXI_2/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_187/XLXI_2/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.064ns  (logic 1.339ns (26.441%)  route 3.725ns (73.559%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.686ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.001ns = ( 13.001 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.756ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.604     3.045    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.169 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.587     3.756    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_2/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y20          FDRE (Prop_fdre_C_Q)         0.456     4.212 r  XLXI_134/XLXI_185/XLXI_2/Q
+                         net (fo=2, routed)           0.813     5.025    XLXI_134/XLXI_186/q1
+    SLICE_X3Y19          LUT6 (Prop_lut6_I1_O)        0.124     5.149 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.149    XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2_n_0
+    SLICE_X3Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.361 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_1/O
+                         net (fo=2, routed)           1.167     6.528    XLXI_132/r2[1]
+    SLICE_X2Y23          LUT2 (Prop_lut2_I0_O)        0.299     6.827 r  XLXI_132/XLXI_2/O
+                         net (fo=2, routed)           0.322     7.150    XLXI_133/xore[1]
+    SLICE_X4Y23          LUT2 (Prop_lut2_I1_O)        0.124     7.274 r  XLXI_133/XLXI_4/O
+                         net (fo=1, routed)           0.162     7.435    XLXI_133/XLXN_24
+    SLICE_X4Y23          LUT2 (Prop_lut2_I0_O)        0.124     7.559 r  XLXI_133/XLXI_10/O
+                         net (fo=8, routed)           1.261     8.820    XLXI_134/XLXI_187/d1
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.012    12.383    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.483 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.517    13.001    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_2/C
+                         clock pessimism              0.070    13.071    
+                         clock uncertainty           -0.035    13.035    
+    SLICE_X2Y19          FDRE (Setup_fdre_C_D)       -0.063    12.972    XLXI_134/XLXI_187/XLXI_2
+  -------------------------------------------------------------------
+                         required time                         12.972    
+                         arrival time                          -8.820    
+  -------------------------------------------------------------------
+                         slack                                  4.152    
+
+Slack (MET) :             4.193ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_184/XLXI_4/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_183/XLXI_4/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.495ns  (logic 1.475ns (26.845%)  route 4.020ns (73.155%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.216ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.415ns = ( 13.415 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.702ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.609     3.050    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.174 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.528     3.702    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y19          FDRE (Prop_fdre_C_Q)         0.419     4.121 r  XLXI_134/XLXI_184/XLXI_4/Q
+                         net (fo=2, routed)           1.171     5.292    XLXI_134/XLXI_186/XLXI_4_1
+    SLICE_X1Y19          LUT6 (Prop_lut6_I3_O)        0.297     5.589 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.589    XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2_n_0
+    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.801 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           0.598     6.399    XLXI_132/r2[3]
+    SLICE_X0Y20          LUT2 (Prop_lut2_I0_O)        0.299     6.698 r  XLXI_132/XLXI_4/O
+                         net (fo=2, routed)           0.465     7.163    XLXI_133/xore[3]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.287 r  XLXI_133/XLXI_8/O
+                         net (fo=1, routed)           0.674     7.961    XLXI_133/XLXN_28
+    SLICE_X4Y21          LUT2 (Prop_lut2_I0_O)        0.124     8.085 r  XLXI_133/XLXI_12/O
+                         net (fo=8, routed)           1.111     9.196    XLXI_134/XLXI_183/d3
+    SLICE_X0Y18          FDRE                                         r  XLXI_134/XLXI_183/XLXI_4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.475    12.846    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.946 r  XLXI_134/XLXI_89/O
+                         net (fo=4, routed)           0.469    13.415    XLXI_134/XLXI_183/XLXN_312
+    SLICE_X0Y18          FDRE                                         r  XLXI_134/XLXI_183/XLXI_4/C
+                         clock pessimism              0.070    13.486    
+                         clock uncertainty           -0.035    13.450    
+    SLICE_X0Y18          FDRE (Setup_fdre_C_D)       -0.061    13.389    XLXI_134/XLXI_183/XLXI_4
+  -------------------------------------------------------------------
+                         required time                         13.389    
+                         arrival time                          -9.196    
+  -------------------------------------------------------------------
+                         slack                                  4.193    
+
+Slack (MET) :             4.370ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_186/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_187/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        4.937ns  (logic 1.339ns (27.123%)  route 3.598ns (72.877%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.613ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.001ns = ( 13.001 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.684ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.226     2.667    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.124     2.791 r  XLXI_134/XLXI_92/O
+                         net (fo=4, routed)           0.893     3.684    XLXI_134/XLXI_186/XLXN_315
+    SLICE_X1Y19          FDRE                                         r  XLXI_134/XLXI_186/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y19          FDRE (Prop_fdre_C_Q)         0.456     4.140 r  XLXI_134/XLXI_186/XLXI_1/Q
+                         net (fo=2, routed)           1.123     5.263    XLXI_134/XLXI_186/XLXN_368
+    SLICE_X1Y18          LUT6 (Prop_lut6_I0_O)        0.124     5.387 r  XLXI_134/XLXI_186/rd_data1_OBUF[0]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.387    XLXI_134/XLXI_186/rd_data1_OBUF[0]_inst_i_2_n_0
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I0_O)      0.212     5.599 r  XLXI_134/XLXI_186/rd_data1_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.445     6.044    XLXI_132/r1[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I1_O)        0.299     6.343 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.821     7.164    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.124     7.288 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.433     7.721    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.124     7.845 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.775     8.621    XLXI_134/XLXI_187/d0
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.012    12.383    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.483 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.517    13.001    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+                         clock pessimism              0.070    13.071    
+                         clock uncertainty           -0.035    13.035    
+    SLICE_X2Y19          FDRE (Setup_fdre_C_D)       -0.045    12.990    XLXI_134/XLXI_187/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         12.990    
+                         arrival time                          -8.621    
+  -------------------------------------------------------------------
+                         slack                                  4.370    
+
+Slack (MET) :             4.380ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_183/XLXI_3/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_187/XLXI_3/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        4.765ns  (logic 1.339ns (28.100%)  route 3.426ns (71.900%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.792ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.001ns = ( 13.001 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.863ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.751     3.192    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.124     3.316 r  XLXI_134/XLXI_89/O
+                         net (fo=4, routed)           0.546     3.863    XLXI_134/XLXI_183/XLXN_312
+    SLICE_X0Y18          FDRE                                         r  XLXI_134/XLXI_183/XLXI_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y18          FDRE (Prop_fdre_C_Q)         0.456     4.319 r  XLXI_134/XLXI_183/XLXI_3/Q
+                         net (fo=2, routed)           0.964     5.283    XLXI_134/XLXI_186/XLXI_3_2
+    SLICE_X0Y20          LUT6 (Prop_lut6_I5_O)        0.124     5.407 r  XLXI_134/XLXI_186/rd_data1_OBUF[2]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.407    XLXI_134/XLXI_186/rd_data1_OBUF[2]_inst_i_2_n_0
+    SLICE_X0Y20          MUXF7 (Prop_muxf7_I0_O)      0.212     5.619 r  XLXI_134/XLXI_186/rd_data1_OBUF[2]_inst_i_1/O
+                         net (fo=2, routed)           0.748     6.367    XLXI_132/r1[2]
+    SLICE_X0Y19          LUT2 (Prop_lut2_I1_O)        0.299     6.666 r  XLXI_132/XLXI_3/O
+                         net (fo=2, routed)           0.457     7.124    XLXI_133/xore[2]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.248 r  XLXI_133/XLXI_6/O
+                         net (fo=1, routed)           0.343     7.591    XLXI_133/XLXN_26
+    SLICE_X5Y21          LUT2 (Prop_lut2_I0_O)        0.124     7.715 r  XLXI_133/XLXI_11/O
+                         net (fo=8, routed)           0.913     8.628    XLXI_134/XLXI_187/d2
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_3/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.012    12.383    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.483 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.517    13.001    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_3/C
+                         clock pessimism              0.070    13.071    
+                         clock uncertainty           -0.035    13.035    
+    SLICE_X2Y19          FDRE (Setup_fdre_C_D)       -0.028    13.007    XLXI_134/XLXI_187/XLXI_3
+  -------------------------------------------------------------------
+                         required time                         13.007    
+                         arrival time                          -8.628    
+  -------------------------------------------------------------------
+                         slack                                  4.380    
+
+Slack (MET) :             4.424ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_184/XLXI_4/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_190/XLXI_4/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.047ns  (logic 1.475ns (29.223%)  route 3.572ns (70.777%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.450ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.182ns = ( 13.182 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.702ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.609     3.050    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.174 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.528     3.702    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_4/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X0Y19          FDRE (Prop_fdre_C_Q)         0.419     4.121 r  XLXI_134/XLXI_184/XLXI_4/Q
+                         net (fo=2, routed)           1.171     5.292    XLXI_134/XLXI_186/XLXI_4_1
+    SLICE_X1Y19          LUT6 (Prop_lut6_I3_O)        0.297     5.589 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.589    XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_2_n_0
+    SLICE_X1Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.801 r  XLXI_134/XLXI_186/rd_data2_OBUF[3]_inst_i_1/O
+                         net (fo=2, routed)           0.598     6.399    XLXI_132/r2[3]
+    SLICE_X0Y20          LUT2 (Prop_lut2_I0_O)        0.299     6.698 r  XLXI_132/XLXI_4/O
+                         net (fo=2, routed)           0.465     7.163    XLXI_133/xore[3]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.124     7.287 r  XLXI_133/XLXI_8/O
+                         net (fo=1, routed)           0.674     7.961    XLXI_133/XLXN_28
+    SLICE_X4Y21          LUT2 (Prop_lut2_I0_O)        0.124     8.085 r  XLXI_133/XLXI_12/O
+                         net (fo=8, routed)           0.664     8.749    XLXI_134/XLXI_190/d3
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_4/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.219    12.590    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.100    12.690 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.491    13.182    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_4/C
+                         clock pessimism              0.070    13.252    
+                         clock uncertainty           -0.035    13.216    
+    SLICE_X3Y19          FDRE (Setup_fdre_C_D)       -0.043    13.173    XLXI_134/XLXI_190/XLXI_4
+  -------------------------------------------------------------------
+                         required time                         13.173    
+                         arrival time                          -8.749    
+  -------------------------------------------------------------------
+                         slack                                  4.424    
+
+Slack (MET) :             4.471ns  (required time - arrival time)
+  Source:                 XLXI_134/XLXI_185/XLXI_2/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_188/XLXI_2/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (sys_clk_pin rise@10.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        5.024ns  (logic 1.339ns (26.655%)  route 3.685ns (73.345%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        -0.395ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    3.291ns = ( 13.291 - 10.000 ) 
+    Source Clock Delay      (SCD):    3.756ns
+    Clock Pessimism Removal (CPR):    0.070ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.441     1.441 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.604     3.045    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.124     3.169 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.587     3.756    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_2/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X1Y20          FDRE (Prop_fdre_C_Q)         0.456     4.212 r  XLXI_134/XLXI_185/XLXI_2/Q
+                         net (fo=2, routed)           0.813     5.025    XLXI_134/XLXI_186/q1
+    SLICE_X3Y19          LUT6 (Prop_lut6_I1_O)        0.124     5.149 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2/O
+                         net (fo=1, routed)           0.000     5.149    XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_2_n_0
+    SLICE_X3Y19          MUXF7 (Prop_muxf7_I0_O)      0.212     5.361 r  XLXI_134/XLXI_186/rd_data2_OBUF[1]_inst_i_1/O
+                         net (fo=2, routed)           1.167     6.528    XLXI_132/r2[1]
+    SLICE_X2Y23          LUT2 (Prop_lut2_I0_O)        0.299     6.827 r  XLXI_132/XLXI_2/O
+                         net (fo=2, routed)           0.322     7.150    XLXI_133/xore[1]
+    SLICE_X4Y23          LUT2 (Prop_lut2_I1_O)        0.124     7.274 r  XLXI_133/XLXI_4/O
+                         net (fo=1, routed)           0.162     7.435    XLXI_133/XLXN_24
+    SLICE_X4Y23          LUT2 (Prop_lut2_I0_O)        0.124     7.559 r  XLXI_133/XLXI_10/O
+                         net (fo=8, routed)           1.221     8.780    XLXI_134/XLXI_188/d1
+    SLICE_X0Y20          FDRE                                         r  XLXI_134/XLXI_188/XLXI_2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                     10.000    10.000 r  
+    U18                                               0.000    10.000 r  clock (IN)
+                         net (fo=0)                   0.000    10.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         1.371    11.371 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           1.185    12.556    XLXI_134/clock
+    SLICE_X0Y20          LUT2 (Prop_lut2_I1_O)        0.100    12.656 r  XLXI_134/XLXI_94/O
+                         net (fo=4, routed)           0.636    13.291    XLXI_134/XLXI_188/XLXN_317
+    SLICE_X0Y20          FDRE                                         r  XLXI_134/XLXI_188/XLXI_2/C
+                         clock pessimism              0.070    13.361    
+                         clock uncertainty           -0.035    13.326    
+    SLICE_X0Y20          FDRE (Setup_fdre_C_D)       -0.075    13.251    XLXI_134/XLXI_188/XLXI_2
+  -------------------------------------------------------------------
+                         required time                         13.251    
+                         arrival time                          -8.780    
+  -------------------------------------------------------------------
+                         slack                                  4.471    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.812ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_2/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_183/XLXI_2/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.298ns  (logic 0.471ns (36.295%)  route 0.827ns (63.705%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.416ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.572ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_2/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_2/Q
+                         net (fo=2, routed)           0.155     1.288    XLXI_134/XLXI_190/XLXI_2_3
+    SLICE_X2Y19          LUT6 (Prop_lut6_I5_O)        0.045     1.333 r  XLXI_134/XLXI_190/rd_data1_OBUF[1]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.333    XLXI_134/XLXI_186/XLXI_2_0
+    SLICE_X2Y19          MUXF7 (Prop_muxf7_I1_O)      0.064     1.397 r  XLXI_134/XLXI_186/rd_data1_OBUF[1]_inst_i_1/O
+                         net (fo=2, routed)           0.277     1.674    XLXI_132/r1[1]
+    SLICE_X2Y23          LUT2 (Prop_lut2_I1_O)        0.108     1.782 r  XLXI_132/XLXI_2/O
+                         net (fo=2, routed)           0.134     1.916    XLXI_133/xore[1]
+    SLICE_X4Y23          LUT2 (Prop_lut2_I1_O)        0.045     1.961 r  XLXI_133/XLXI_4/O
+                         net (fo=1, routed)           0.059     2.020    XLXI_133/XLXN_24
+    SLICE_X4Y23          LUT2 (Prop_lut2_I0_O)        0.045     2.065 r  XLXI_133/XLXI_10/O
+                         net (fo=8, routed)           0.201     2.267    XLXI_134/XLXI_183/d1
+    SLICE_X4Y19          FDRE                                         r  XLXI_134/XLXI_183/XLXI_2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.811     1.208    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.056     1.264 r  XLXI_134/XLXI_89/O
+                         net (fo=4, routed)           0.308     1.572    XLXI_134/XLXI_183/XLXN_312
+    SLICE_X4Y19          FDRE                                         r  XLXI_134/XLXI_183/XLXI_2/C
+                         clock pessimism             -0.187     1.385    
+    SLICE_X4Y19          FDRE (Hold_fdre_C_D)         0.070     1.455    XLXI_134/XLXI_183/XLXI_2
+  -------------------------------------------------------------------
+                         required time                         -1.455    
+                         arrival time                           2.267    
+  -------------------------------------------------------------------
+                         slack                                  0.812    
+
+Slack (MET) :             0.992ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_183/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.397ns  (logic 0.481ns (34.441%)  route 0.916ns (65.559%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.335ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.491ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_1/Q
+                         net (fo=2, routed)           0.102     1.235    XLXI_134/XLXI_190/XLXI_1_3
+    SLICE_X1Y18          LUT6 (Prop_lut6_I5_O)        0.045     1.280 r  XLXI_134/XLXI_190/rd_data2_OBUF[0]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.280    XLXI_134/XLXI_186/XLXI_1_3
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     1.354 r  XLXI_134/XLXI_186/rd_data2_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.191     1.544    XLXI_132/r2[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I0_O)        0.108     1.652 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.291     1.943    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.045     1.988 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.137     2.125    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.045     2.170 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.196     2.366    XLXI_134/XLXI_183/d0
+    SLICE_X0Y18          FDRE                                         r  XLXI_134/XLXI_183/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.811     1.208    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.056     1.264 r  XLXI_134/XLXI_89/O
+                         net (fo=4, routed)           0.227     1.491    XLXI_134/XLXI_183/XLXN_312
+    SLICE_X0Y18          FDRE                                         r  XLXI_134/XLXI_183/XLXI_1/C
+                         clock pessimism             -0.187     1.304    
+    SLICE_X0Y18          FDRE (Hold_fdre_C_D)         0.070     1.374    XLXI_134/XLXI_183/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         -1.374    
+                         arrival time                           2.366    
+  -------------------------------------------------------------------
+                         slack                                  0.992    
+
+Slack (MET) :             1.035ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_190/XLXI_3/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_185/XLXI_3/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.328ns  (logic 0.449ns (33.805%)  route 0.879ns (66.195%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.224ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.434ns
+    Source Clock Delay      (SCD):    1.023ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.568     0.777    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.822 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.200     1.023    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y19          FDRE (Prop_fdre_C_Q)         0.141     1.164 r  XLXI_134/XLXI_190/XLXI_3/Q
+                         net (fo=2, routed)           0.150     1.314    XLXI_134/XLXI_190/XLXN_388
+    SLICE_X0Y19          LUT6 (Prop_lut6_I0_O)        0.045     1.359 r  XLXI_134/XLXI_190/rd_data2_OBUF[2]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.359    XLXI_134/XLXI_186/XLXI_3_3
+    SLICE_X0Y19          MUXF7 (Prop_muxf7_I1_O)      0.065     1.424 r  XLXI_134/XLXI_186/rd_data2_OBUF[2]_inst_i_1/O
+                         net (fo=2, routed)           0.163     1.587    XLXI_132/r2[2]
+    SLICE_X0Y19          LUT2 (Prop_lut2_I0_O)        0.108     1.695 r  XLXI_132/XLXI_3/O
+                         net (fo=2, routed)           0.189     1.884    XLXI_133/xore[2]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.045     1.929 r  XLXI_133/XLXI_6/O
+                         net (fo=1, routed)           0.111     2.040    XLXI_133/XLXN_26
+    SLICE_X5Y21          LUT2 (Prop_lut2_I0_O)        0.045     2.085 r  XLXI_133/XLXI_11/O
+                         net (fo=8, routed)           0.266     2.351    XLXI_134/XLXI_185/d2
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_3/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.736     1.133    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.189 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.245     1.434    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y20          FDRE                                         r  XLXI_134/XLXI_185/XLXI_3/C
+                         clock pessimism             -0.187     1.247    
+    SLICE_X1Y20          FDRE (Hold_fdre_C_D)         0.070     1.317    XLXI_134/XLXI_185/XLXI_3
+  -------------------------------------------------------------------
+                         required time                         -1.317    
+                         arrival time                           2.351    
+  -------------------------------------------------------------------
+                         slack                                  1.035    
+
+Slack (MET) :             1.063ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_190/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.326ns  (logic 0.481ns (36.279%)  route 0.845ns (63.721%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.197ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.353ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_1/Q
+                         net (fo=2, routed)           0.102     1.235    XLXI_134/XLXI_190/XLXI_1_3
+    SLICE_X1Y18          LUT6 (Prop_lut6_I5_O)        0.045     1.280 r  XLXI_134/XLXI_190/rd_data2_OBUF[0]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.280    XLXI_134/XLXI_186/XLXI_1_3
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     1.354 r  XLXI_134/XLXI_186/rd_data2_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.191     1.544    XLXI_132/r2[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I0_O)        0.108     1.652 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.291     1.943    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.045     1.988 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.137     2.125    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.045     2.170 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.125     2.295    XLXI_134/XLXI_190/d0
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.667     1.064    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.056     1.120 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.233     1.353    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_1/C
+                         clock pessimism             -0.187     1.166    
+    SLICE_X3Y19          FDRE (Hold_fdre_C_D)         0.066     1.232    XLXI_134/XLXI_190/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         -1.232    
+                         arrival time                           2.295    
+  -------------------------------------------------------------------
+                         slack                                  1.063    
+
+Slack (MET) :             1.072ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_190/XLXI_3/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_188/XLXI_3/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.373ns  (logic 0.449ns (32.695%)  route 0.924ns (67.305%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.230ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.440ns
+    Source Clock Delay      (SCD):    1.023ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.568     0.777    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.822 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.200     1.023    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y19          FDRE (Prop_fdre_C_Q)         0.141     1.164 r  XLXI_134/XLXI_190/XLXI_3/Q
+                         net (fo=2, routed)           0.150     1.314    XLXI_134/XLXI_190/XLXN_388
+    SLICE_X0Y19          LUT6 (Prop_lut6_I0_O)        0.045     1.359 r  XLXI_134/XLXI_190/rd_data2_OBUF[2]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.359    XLXI_134/XLXI_186/XLXI_3_3
+    SLICE_X0Y19          MUXF7 (Prop_muxf7_I1_O)      0.065     1.424 r  XLXI_134/XLXI_186/rd_data2_OBUF[2]_inst_i_1/O
+                         net (fo=2, routed)           0.163     1.587    XLXI_132/r2[2]
+    SLICE_X0Y19          LUT2 (Prop_lut2_I0_O)        0.108     1.695 r  XLXI_132/XLXI_3/O
+                         net (fo=2, routed)           0.189     1.884    XLXI_133/xore[2]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.045     1.929 r  XLXI_133/XLXI_6/O
+                         net (fo=1, routed)           0.111     2.040    XLXI_133/XLXN_26
+    SLICE_X5Y21          LUT2 (Prop_lut2_I0_O)        0.045     2.085 r  XLXI_133/XLXI_11/O
+                         net (fo=8, routed)           0.311     2.396    XLXI_134/XLXI_188/d2
+    SLICE_X0Y20          FDRE                                         r  XLXI_134/XLXI_188/XLXI_3/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.655     1.052    XLXI_134/clock
+    SLICE_X0Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.108 r  XLXI_134/XLXI_94/O
+                         net (fo=4, routed)           0.333     1.440    XLXI_134/XLXI_188/XLXN_317
+    SLICE_X0Y20          FDRE                                         r  XLXI_134/XLXI_188/XLXI_3/C
+                         clock pessimism             -0.187     1.253    
+    SLICE_X0Y20          FDRE (Hold_fdre_C_D)         0.072     1.325    XLXI_134/XLXI_188/XLXI_3
+  -------------------------------------------------------------------
+                         required time                         -1.325    
+                         arrival time                           2.396    
+  -------------------------------------------------------------------
+                         slack                                  1.072    
+
+Slack (MET) :             1.075ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_185/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.470ns  (logic 0.481ns (32.711%)  route 0.989ns (67.289%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.329ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.486ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_1/Q
+                         net (fo=2, routed)           0.102     1.235    XLXI_134/XLXI_190/XLXI_1_3
+    SLICE_X1Y18          LUT6 (Prop_lut6_I5_O)        0.045     1.280 r  XLXI_134/XLXI_190/rd_data2_OBUF[0]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.280    XLXI_134/XLXI_186/XLXI_1_3
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     1.354 r  XLXI_134/XLXI_186/rd_data2_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.191     1.544    XLXI_132/r2[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I0_O)        0.108     1.652 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.291     1.943    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.045     1.988 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.137     2.125    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.045     2.170 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.269     2.439    XLXI_134/XLXI_185/d0
+    SLICE_X1Y18          FDRE                                         r  XLXI_134/XLXI_185/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.736     1.133    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.189 r  XLXI_134/XLXI_91/O
+                         net (fo=4, routed)           0.297     1.486    XLXI_134/XLXI_185/XLXN_314
+    SLICE_X1Y18          FDRE                                         r  XLXI_134/XLXI_185/XLXI_1/C
+                         clock pessimism             -0.187     1.298    
+    SLICE_X1Y18          FDRE (Hold_fdre_C_D)         0.066     1.364    XLXI_134/XLXI_185/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         -1.364    
+                         arrival time                           2.439    
+  -------------------------------------------------------------------
+                         slack                                  1.075    
+
+Slack (MET) :             1.081ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_189/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.327ns  (logic 0.481ns (36.251%)  route 0.846ns (63.749%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.187ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.344ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_1/Q
+                         net (fo=2, routed)           0.102     1.235    XLXI_134/XLXI_190/XLXI_1_3
+    SLICE_X1Y18          LUT6 (Prop_lut6_I5_O)        0.045     1.280 r  XLXI_134/XLXI_190/rd_data2_OBUF[0]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.280    XLXI_134/XLXI_186/XLXI_1_3
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     1.354 r  XLXI_134/XLXI_186/rd_data2_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.191     1.544    XLXI_132/r2[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I0_O)        0.108     1.652 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.291     1.943    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.045     1.988 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.137     2.125    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.045     2.170 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.126     2.296    XLXI_134/XLXI_189/d0
+    SLICE_X2Y20          FDRE                                         r  XLXI_134/XLXI_189/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.664     1.061    XLXI_134/clock
+    SLICE_X3Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.117 r  XLXI_134/XLXI_95/O
+                         net (fo=4, routed)           0.227     1.344    XLXI_134/XLXI_189/XLXN_318
+    SLICE_X2Y20          FDRE                                         r  XLXI_134/XLXI_189/XLXI_1/C
+                         clock pessimism             -0.187     1.156    
+    SLICE_X2Y20          FDRE (Hold_fdre_C_D)         0.059     1.215    XLXI_134/XLXI_189/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         -1.215    
+                         arrival time                           2.296    
+  -------------------------------------------------------------------
+                         slack                                  1.081    
+
+Slack (MET) :             1.091ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_187/XLXI_1/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_184/XLXI_1/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.418ns  (logic 0.481ns (33.931%)  route 0.937ns (66.069%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.261ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.417ns
+    Source Clock Delay      (SCD):    0.969ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.490     0.699    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.744 r  XLXI_134/XLXI_93/O
+                         net (fo=4, routed)           0.224     0.969    XLXI_134/XLXI_187/XLXN_316
+    SLICE_X2Y19          FDRE                                         r  XLXI_134/XLXI_187/XLXI_1/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X2Y19          FDRE (Prop_fdre_C_Q)         0.164     1.133 r  XLXI_134/XLXI_187/XLXI_1/Q
+                         net (fo=2, routed)           0.102     1.235    XLXI_134/XLXI_190/XLXI_1_3
+    SLICE_X1Y18          LUT6 (Prop_lut6_I5_O)        0.045     1.280 r  XLXI_134/XLXI_190/rd_data2_OBUF[0]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.280    XLXI_134/XLXI_186/XLXI_1_3
+    SLICE_X1Y18          MUXF7 (Prop_muxf7_I1_O)      0.074     1.354 r  XLXI_134/XLXI_186/rd_data2_OBUF[0]_inst_i_1/O
+                         net (fo=2, routed)           0.191     1.544    XLXI_132/r2[0]
+    SLICE_X0Y18          LUT2 (Prop_lut2_I0_O)        0.108     1.652 r  XLXI_132/XLXI_1/O
+                         net (fo=2, routed)           0.291     1.943    XLXI_133/xore[0]
+    SLICE_X1Y19          LUT2 (Prop_lut2_I1_O)        0.045     1.988 r  XLXI_133/XLXI_2/O
+                         net (fo=1, routed)           0.137     2.125    XLXI_133/XLXN_22
+    SLICE_X1Y19          LUT2 (Prop_lut2_I0_O)        0.045     2.170 r  XLXI_133/XLXI_9/O
+                         net (fo=8, routed)           0.216     2.387    XLXI_134/XLXI_184/d0
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_1/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.737     1.134    XLXI_134/clock
+    SLICE_X1Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.190 r  XLXI_134/XLXI_90/O
+                         net (fo=4, routed)           0.228     1.417    XLXI_134/XLXI_184/XLXN_313
+    SLICE_X0Y19          FDRE                                         r  XLXI_134/XLXI_184/XLXI_1/C
+                         clock pessimism             -0.187     1.230    
+    SLICE_X0Y19          FDRE (Hold_fdre_C_D)         0.066     1.296    XLXI_134/XLXI_184/XLXI_1
+  -------------------------------------------------------------------
+                         required time                         -1.296    
+                         arrival time                           2.387    
+  -------------------------------------------------------------------
+                         slack                                  1.091    
+
+Slack (MET) :             1.099ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_190/XLXI_3/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_189/XLXI_3/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.295ns  (logic 0.449ns (34.681%)  route 0.846ns (65.319%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.133ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.344ns
+    Source Clock Delay      (SCD):    1.023ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.568     0.777    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.822 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.200     1.023    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y19          FDRE (Prop_fdre_C_Q)         0.141     1.164 r  XLXI_134/XLXI_190/XLXI_3/Q
+                         net (fo=2, routed)           0.150     1.314    XLXI_134/XLXI_190/XLXN_388
+    SLICE_X0Y19          LUT6 (Prop_lut6_I0_O)        0.045     1.359 r  XLXI_134/XLXI_190/rd_data2_OBUF[2]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.359    XLXI_134/XLXI_186/XLXI_3_3
+    SLICE_X0Y19          MUXF7 (Prop_muxf7_I1_O)      0.065     1.424 r  XLXI_134/XLXI_186/rd_data2_OBUF[2]_inst_i_1/O
+                         net (fo=2, routed)           0.163     1.587    XLXI_132/r2[2]
+    SLICE_X0Y19          LUT2 (Prop_lut2_I0_O)        0.108     1.695 r  XLXI_132/XLXI_3/O
+                         net (fo=2, routed)           0.189     1.884    XLXI_133/xore[2]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.045     1.929 r  XLXI_133/XLXI_6/O
+                         net (fo=1, routed)           0.111     2.040    XLXI_133/XLXN_26
+    SLICE_X5Y21          LUT2 (Prop_lut2_I0_O)        0.045     2.085 r  XLXI_133/XLXI_11/O
+                         net (fo=8, routed)           0.232     2.318    XLXI_134/XLXI_189/d2
+    SLICE_X2Y20          FDRE                                         r  XLXI_134/XLXI_189/XLXI_3/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.664     1.061    XLXI_134/clock
+    SLICE_X3Y20          LUT2 (Prop_lut2_I1_O)        0.056     1.117 r  XLXI_134/XLXI_95/O
+                         net (fo=4, routed)           0.227     1.344    XLXI_134/XLXI_189/XLXN_318
+    SLICE_X2Y20          FDRE                                         r  XLXI_134/XLXI_189/XLXI_3/C
+                         clock pessimism             -0.187     1.156    
+    SLICE_X2Y20          FDRE (Hold_fdre_C_D)         0.063     1.219    XLXI_134/XLXI_189/XLXI_3
+  -------------------------------------------------------------------
+                         required time                         -1.219    
+                         arrival time                           2.318    
+  -------------------------------------------------------------------
+                         slack                                  1.099    
+
+Slack (MET) :             1.121ns  (arrival time - required time)
+  Source:                 XLXI_134/XLXI_190/XLXI_3/C
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            XLXI_134/XLXI_186/XLXI_3/D
+                            (rising edge-triggered cell FDRE clocked by sys_clk_pin  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             sys_clk_pin
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (sys_clk_pin rise@0.000ns - sys_clk_pin rise@0.000ns)
+  Data Path Delay:        1.427ns  (logic 0.449ns (31.458%)  route 0.978ns (68.542%))
+  Logic Levels:           5  (LUT2=3 LUT6=1 MUXF7=1)
+  Clock Path Skew:        0.234ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.445ns
+    Source Clock Delay      (SCD):    1.023ns
+    Clock Pessimism Removal (CPR):    0.187ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.210     0.210 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.568     0.777    XLXI_134/clock
+    SLICE_X3Y19          LUT2 (Prop_lut2_I1_O)        0.045     0.822 r  XLXI_134/XLXI_96/O
+                         net (fo=4, routed)           0.200     1.023    XLXI_134/XLXI_190/XLXN_319
+    SLICE_X3Y19          FDRE                                         r  XLXI_134/XLXI_190/XLXI_3/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X3Y19          FDRE (Prop_fdre_C_Q)         0.141     1.164 r  XLXI_134/XLXI_190/XLXI_3/Q
+                         net (fo=2, routed)           0.150     1.314    XLXI_134/XLXI_190/XLXN_388
+    SLICE_X0Y19          LUT6 (Prop_lut6_I0_O)        0.045     1.359 r  XLXI_134/XLXI_190/rd_data2_OBUF[2]_inst_i_3/O
+                         net (fo=1, routed)           0.000     1.359    XLXI_134/XLXI_186/XLXI_3_3
+    SLICE_X0Y19          MUXF7 (Prop_muxf7_I1_O)      0.065     1.424 r  XLXI_134/XLXI_186/rd_data2_OBUF[2]_inst_i_1/O
+                         net (fo=2, routed)           0.163     1.587    XLXI_132/r2[2]
+    SLICE_X0Y19          LUT2 (Prop_lut2_I0_O)        0.108     1.695 r  XLXI_132/XLXI_3/O
+                         net (fo=2, routed)           0.189     1.884    XLXI_133/xore[2]
+    SLICE_X4Y21          LUT2 (Prop_lut2_I1_O)        0.045     1.929 r  XLXI_133/XLXI_6/O
+                         net (fo=1, routed)           0.111     2.040    XLXI_133/XLXN_26
+    SLICE_X5Y21          LUT2 (Prop_lut2_I0_O)        0.045     2.085 r  XLXI_133/XLXI_11/O
+                         net (fo=8, routed)           0.365     2.450    XLXI_134/XLXI_186/d2
+    SLICE_X1Y19          FDRE                                         r  XLXI_134/XLXI_186/XLXI_3/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock sys_clk_pin rise edge)
+                                                      0.000     0.000 r  
+    U18                                               0.000     0.000 r  clock (IN)
+                         net (fo=0)                   0.000     0.000    clock
+    U18                  IBUF (Prop_ibuf_I_O)         0.397     0.397 r  clock_IBUF_inst/O
+                         net (fo=8, routed)           0.581     0.978    XLXI_134/clock
+    SLICE_X2Y19          LUT2 (Prop_lut2_I1_O)        0.056     1.034 r  XLXI_134/XLXI_92/O
+                         net (fo=4, routed)           0.411     1.445    XLXI_134/XLXI_186/XLXN_315
+    SLICE_X1Y19          FDRE                                         r  XLXI_134/XLXI_186/XLXI_3/C
+                         clock pessimism             -0.187     1.257    
+    SLICE_X1Y19          FDRE (Hold_fdre_C_D)         0.072     1.329    XLXI_134/XLXI_186/XLXI_3
+  -------------------------------------------------------------------
+                         required time                         -1.329    
+                         arrival time                           2.450    
+  -------------------------------------------------------------------
+                         slack                                  1.121    
+
+
+
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         sys_clk_pin
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { clock }
+
+Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location     Pin
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_1/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X4Y19  XLXI_134/XLXI_183/XLXI_2/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_3/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_4/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y19  XLXI_134/XLXI_184/XLXI_1/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y19  XLXI_134/XLXI_184/XLXI_2/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y19  XLXI_134/XLXI_184/XLXI_3/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X0Y19  XLXI_134/XLXI_184/XLXI_4/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y18  XLXI_134/XLXI_185/XLXI_1/C
+Min Period        n/a     FDRE/C   n/a            1.000         10.000      9.000      SLICE_X1Y20  XLXI_134/XLXI_185/XLXI_2/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y19  XLXI_134/XLXI_190/XLXI_1/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y19  XLXI_134/XLXI_190/XLXI_2/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y19  XLXI_134/XLXI_190/XLXI_3/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X3Y19  XLXI_134/XLXI_190/XLXI_4/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y19  XLXI_134/XLXI_186/XLXI_1/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y19  XLXI_134/XLXI_186/XLXI_2/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y19  XLXI_134/XLXI_186/XLXI_3/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y19  XLXI_134/XLXI_186/XLXI_4/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y20  XLXI_134/XLXI_189/XLXI_1/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X2Y20  XLXI_134/XLXI_189/XLXI_2/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_1/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X4Y19  XLXI_134/XLXI_183/XLXI_2/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_3/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y18  XLXI_134/XLXI_183/XLXI_4/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y20  XLXI_134/XLXI_185/XLXI_2/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y20  XLXI_134/XLXI_185/XLXI_3/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X1Y20  XLXI_134/XLXI_185/XLXI_4/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y20  XLXI_134/XLXI_188/XLXI_1/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y20  XLXI_134/XLXI_188/XLXI_2/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         5.000       4.500      SLICE_X0Y20  XLXI_134/XLXI_188/XLXI_3/C
+
+
+

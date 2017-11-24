@@ -1,0 +1,9 @@
+MODULE clockdivider
+	SUBMODULE freqdivide
+		INSTANCE XLXI_1
+	SUBMODULE ringcounter
+		INSTANCE XLXI_2
+	SUBMODULE ringcounter
+		INSTANCE XLXI_3
+	SUBMODULE mux8_4
+		INSTANCE XLXI_4

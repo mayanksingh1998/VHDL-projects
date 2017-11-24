@@ -1,0 +1,191 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.4 (lin64) Build 1756540 Mon Jan 23 19:11:19 MST 2017
+| Date         : Sun Sep 10 23:54:04 2017
+| Host         : ubuntu running 64-bit Ubuntu 14.04.5 LTS
+| Command      : report_methodology -file lab3_reg_file_methodology_drc_routed.rpt -rpx lab3_reg_file_methodology_drc_routed.rpx
+| Design       : lab3_reg_file
+| Device       : xc7a35tcpg236-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 31
++-----------+----------+-------------------------------+------------+
+| Rule      | Severity | Description                   | Violations |
++-----------+----------+-------------------------------+------------+
+| TIMING-14 | Warning  | LUT on the clock tree         | 8          |
+| TIMING-18 | Warning  | Missing input or output delay | 23         |
++-----------+----------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-14#1 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_89 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#2 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_90 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#3 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_91 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#4 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_92 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#5 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_93 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#6 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_94 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#7 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_95 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-14#8 Warning
+LUT on the clock tree  
+The LUT XLXI_134/XLXI_96 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on mode relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr1[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr1[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr1[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr2[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr2[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on rd_addr2[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on wr_data[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on wr_data[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on wr_data[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on wr_data[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1_xor_data2[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1_xor_data2[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1_xor_data2[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on rd_data1_xor_data2[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on rd_data2[0] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on rd_data2[1] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on rd_data2[2] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on rd_data2[3] relative to clock(s) sys_clk_pin 
+Related violations: <none>
+
+

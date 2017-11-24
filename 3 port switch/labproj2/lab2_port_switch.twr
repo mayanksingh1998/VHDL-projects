@@ -1,0 +1,103 @@
+--------------------------------------------------------------------------------
+Release 14.7 Trace  (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 3
+-n 3 -fastpaths -xml lab2_port_switch.twx lab2_port_switch.ncd -o
+lab2_port_switch.twr lab2_port_switch.pcf
+
+Design file:              lab2_port_switch.ncd
+Physical constraint file: lab2_port_switch.pcf
+Device,package,speed:     xc7a200t,fbg484,C,-3 (PRODUCTION 1.10 2013-10-13)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Pad to Pad
+---------------+---------------+---------+
+Source Pad     |Destination Pad|  Delay  |
+---------------+---------------+---------+
+dest0<0>       |dout0          |    5.922|
+dest0<0>       |dout1          |    6.316|
+dest0<0>       |dout2          |    6.489|
+dest0<1>       |dout0          |    5.974|
+dest0<1>       |dout1          |    6.173|
+dest0<1>       |dout2          |    5.960|
+dest1<0>       |dout0          |    5.357|
+dest1<0>       |dout1          |    5.751|
+dest1<0>       |dout2          |    5.924|
+dest1<1>       |dout0          |    5.779|
+dest1<1>       |dout1          |    5.978|
+dest1<1>       |dout2          |    5.765|
+dest2<0>       |dout0          |    5.595|
+dest2<0>       |dout1          |    5.989|
+dest2<0>       |dout2          |    6.162|
+dest2<1>       |dout0          |    6.137|
+dest2<1>       |dout1          |    6.336|
+dest2<1>       |dout2          |    6.123|
+din0           |dout0          |    5.802|
+din0           |dout1          |    6.287|
+din0           |dout2          |    5.931|
+din1           |dout0          |    5.584|
+din1           |dout1          |    6.069|
+din1           |dout2          |    5.713|
+din2           |dout0          |    5.738|
+din2           |dout1          |    6.223|
+din2           |dout2          |    5.867|
+req0           |ack0           |    7.355|
+req0           |ack1           |    6.914|
+req0           |ack2           |    7.454|
+req0           |dout0          |    7.763|
+req0           |dout1          |    8.248|
+req0           |dout2          |    7.892|
+req0           |src<0>         |    6.317|
+req0           |src<1>         |    5.857|
+req1           |ack0           |    7.112|
+req1           |ack1           |    6.671|
+req1           |ack2           |    7.211|
+req1           |dout0          |    7.520|
+req1           |dout1          |    8.005|
+req1           |dout2          |    7.649|
+req1           |src<0>         |    6.074|
+req1           |src<1>         |    5.614|
+req2           |ack0           |    7.007|
+req2           |ack1           |    6.566|
+req2           |ack2           |    7.106|
+req2           |dout0          |    7.415|
+req2           |dout1          |    7.900|
+req2           |dout2          |    7.544|
+req2           |src<0>         |    5.969|
+req2           |src<1>         |    5.509|
+---------------+---------------+---------+
+
+
+Analysis completed Tue Aug 22 14:37:26 2017 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 821 MB
+
+
+

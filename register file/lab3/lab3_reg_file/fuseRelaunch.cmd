@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file_isim_beh.exe" -prj "/home/kgopal/Desktop/Prarthit/lab3/lab3_reg_file/lab3_reg_file_beh.prj" "work.lab3_reg_file" 

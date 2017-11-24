@@ -1,0 +1,35 @@
+Vivado Simulator 2016.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2016.4/bin/unwrapped/lnx64.o/xelab -wto 3bf066f917744cef9ef10dba453d44fb --debug typical --relax --mt 8 -L xil_defaultlib -L secureip --snapshot lab3_reg_file_tb_behav xil_defaultlib.lab3_reg_file_tb -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package unisim.vcomponents
+Compiling package ieee.vital_timing
+Compiling package ieee.vital_primitives
+Compiling package unisim.vpkg
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="0110")(0,3)\]
+Compiling architecture xor2_v of entity unisim.XOR2 [xor2_default]
+Compiling architecture behavioral of entity xil_defaultlib.xor1_MUSER_lab3_reg_file [xor1_muser_lab3_reg_file_default]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1000")(0,3)\]
+Compiling architecture and2_v of entity unisim.AND2 [and2_default]
+Compiling architecture lut2_v of entity unisim.LUT2 [\LUT2(init="1110")(0,3)\]
+Compiling architecture or2_v of entity unisim.OR2 [or2_default]
+Compiling architecture inv_v of entity unisim.INV [inv_default]
+Compiling architecture behavioral of entity xil_defaultlib.mux8_4_MUSER_lab3_reg_file [mux8_4_muser_lab3_reg_file_defau...]
+Compiling architecture d3_8e_hxilinx_lab3_reg_file_v of entity xil_defaultlib.D3_8E_HXILINX_lab3_reg_file [d3_8e_hxilinx_lab3_reg_file_defa...]
+Compiling architecture m8_1e_hxilinx_lab3_reg_file_v of entity xil_defaultlib.M8_1E_HXILINX_lab3_reg_file [m8_1e_hxilinx_lab3_reg_file_defa...]
+Compiling architecture fdre_v of entity unisim.FDRE [fdre_default]
+Compiling architecture fd_v of entity unisim.FD [fd_default]
+Compiling architecture behavioral of entity xil_defaultlib.registerlogic_MUSER_lab3_reg_file [registerlogic_muser_lab3_reg_fil...]
+Compiling architecture behavioral of entity xil_defaultlib.regfile_MUSER_lab3_reg_file [regfile_muser_lab3_reg_file_defa...]
+Compiling architecture behavioral of entity xil_defaultlib.lab3_reg_file [lab3_reg_file_default]
+Compiling architecture behavioral of entity xil_defaultlib.lab3_reg_file_tb
+Built simulation snapshot lab3_reg_file_tb_behav

@@ -1,0 +1,2588 @@
+----------------------------------------------------------------------------------
+-- Company: 
+-- Engineer: 
+-- 
+-- Create Date: 28.10.2017 23:26:05
+-- Design Name: 
+-- Module Name: lab6_multiplier - Behavioral
+-- Project Name: 
+-- Target Devices: 
+-- Tool Versions: 
+-- Description: 
+-- 
+-- Dependencies: 
+-- 
+-- Revision:
+-- Revision 0.01 - File Created
+-- Additional Comments:
+-- 
+----------------------------------------------------------------------------------
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+--use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+entity CLA_adder is
+  Port (
+   A : in std_logic;
+  B : in std_logic;
+  C : in std_logic;
+  S : out std_logic
+   );
+end CLA_adder;
+
+architecture Behavioral of CLA_adder is
+
+begin
+S <= A XOR B XOR C;
+
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA_1UNIT is
+  Port (
+  P : in std_logic; 
+  G : in std_logic;
+  C1: in std_logic;
+  C2: out std_logic
+  
+   );
+end CLA_1UNIT;
+
+architecture Behavioral of CLA_1UNIT is
+
+begin
+C2<=(P AND C1)OR G;
+end Behavioral;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA_UNIT is
+  Port (
+  P1 : in std_logic_vector(3 downto 0); 
+  G1: in std_logic_vector(3 downto 0);
+  C3: in std_logic;
+  C4: out std_logic_vector(4 downto 0)
+  
+   );
+end CLA_UNIT;
+
+architecture Behavioral of CLA_UNIT is
+signal t: std_logic_vector(3 downto 0);
+component CLA_1UNIT
+  Port (
+  P : in std_logic; 
+  G : in std_logic;
+  C1: in std_logic;
+  C2: out std_logic
+    );
+end component;
+begin
+C4(0)<=C3;
+U1 : CLA_1UNIT
+Port map (
+P => P1(0), 
+  G =>G1(0),
+  C1 =>C3,
+  C2=>t(0)
+);
+C4(1)<=t(0);
+U2 : CLA_1UNIT
+Port map (
+P => P1(1), 
+  G =>G1(1),
+  C1 =>t(0),
+  C2=>t(1)
+);
+C4(2)<=t(1);
+U3 : CLA_1UNIT
+Port map (
+P => P1(2), 
+  G =>G1(3),
+  C1 =>t(1),
+  C2=>t(2)
+);
+C4(3)<=t(2);
+U4 : CLA_1UNIT
+Port map (
+P => P1(3), 
+  G =>G1(3),
+  C1 =>t(2),
+  C2=>t(3)
+);
+C4(4)<=t(3);
+
+
+
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity CLA is
+  Port (
+  A1 : in std_logic_vector(3 downto 0); 
+  B1: in std_logic_vector(3 downto 0);
+  C5: in std_logic;
+  C6: out std_logic;
+  S1: out std_logic_vector(3 downto 0)
+  );
+end CLA;
+architecture Behavioral of CLA is
+signal c:std_logic_vector(4 downto 0);
+component CLA_adder 
+  Port (
+   A : in std_logic;
+  B : in std_logic;
+  C : in std_logic;
+  S : out std_logic
+   );
+end component;
+component CLA_UNIT is
+  Port (
+  P1 : in std_logic_vector(3 downto 0); 
+  G1: in std_logic_vector(3 downto 0);
+  C3: in std_logic;
+  C4: out std_logic_vector(4 downto 0)
+  );
+end component;
+begin
+CO1: CLA_UNIT 
+  Port map (
+  P1 => A1 OR B1,
+  G1 => A1 AND B1,
+  C3 =>C5,
+  C4 (4 downto 0) =>c(4 downto 0)
+   );
+CO2: CLA_adder 
+  Port map (
+  A =>A1(0),
+  B =>B1(0),
+  C =>c(0),
+  S =>S1(0)
+   );
+CO3: CLA_adder 
+  Port map (
+ A =>A1(1),
+  B =>B1(1),
+  C =>c(1),
+  S =>S1(1)
+   );
+CO4: CLA_adder 
+  Port map (
+ A =>A1(2),
+  B =>B1(2),
+  C =>c(2),
+  S =>S1(2)
+   );
+CO5: CLA_adder 
+  Port map (
+  A =>A1(3),
+  B =>B1(3),
+  C =>c(3),
+  S =>S1(3)
+   );
+	C6<= c(4);
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity carry_propogate_adder is
+port(
+Cin: in std_logic;
+Ilow: in std_logic_vector(7 downto 0);
+Ihigh: in std_logic_vector(7 downto 0);
+O: out std_logic_vector( 8 downto 0)
+);
+end carry_propogate_adder;
+architecture Behavioral of carry_propogate_adder  is
+signal t:std_logic_vector(6 downto 0);
+component fulladder is
+  Port (
+  I3: in std_logic;
+  I4 : in std_logic;
+  C7 : in std_logic;
+  S3 : out std_logic;
+  C8 : out std_logic
+   );
+end component;
+begin
+F1: fulladder
+  Port map (
+  I3 => Ilow(0),
+  I4 => Ihigh(0),
+  C7 => Cin,
+  S3 => O(0),
+  C8 => t(0)
+  );
+  F2: fulladder
+  Port map (
+  I3 => Ilow(1),
+  I4 => Ihigh(1),
+  C7 => t(0),
+  S3 => O(1),
+  C8 => t(1)
+  );
+  F3: fulladder
+  Port map (
+   I3 => Ilow(2),
+  I4 => Ihigh(2),
+  C7 => t(1),
+  S3 => O(2),
+  C8 => t(2)
+  );
+  F4: fulladder
+  Port map (
+  I3 => Ilow(3),
+  I4 => Ihigh(3),
+  C7 => t(2),
+  S3 => O(3),
+  C8 => t(3)
+  );
+  F5: fulladder
+  Port map (
+  I3 => Ilow(4),
+  I4 => Ihigh(4),
+  C7 => t(3),
+  S3 => O(4),
+  C8 => t(4)
+  );
+  F6: fulladder
+  Port map (
+  I3 => Ilow(5),
+  I4 => Ihigh(5),
+  C7 => t(4),
+  S3 => O(5),
+  C8 => t(5)
+  );
+  F7: fulladder
+  Port map (
+  I3 => Ilow(6),
+  I4 => Ihigh(6),
+  C7 => t(5),
+  S3 => O(6),
+  C8 => t(6)
+  );
+  F8: fulladder
+  Port map (
+  I3 => Ilow(7),
+  I4 => Ihigh(7),
+  C7 => t(6),
+  S3 => O(7),
+  C8 => O(8)
+  );
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+entity Pmaker is
+port (
+A2: in std_logic_vector(7 downto 0);
+B2: in std_logic_vector(7 downto 0);
+P0: out std_logic_vector(7 downto 0);
+P1: out std_logic_vector(7 downto 0);
+P2: out std_logic_vector(7 downto 0);
+P3: out std_logic_vector(7 downto 0);
+P4: out std_logic_vector(7 downto 0);
+P5: out std_logic_vector(7 downto 0);
+P6: out std_logic_vector(7 downto 0);
+P7: out std_logic_vector(7 downto 0)
+);
+end Pmaker;
+architecture Behavioral of Pmaker  is
+begin
+process(A2,B2)
+
+begin
+	P0 <= "00000000";
+	for I in 0 to 7 loop
+			P0(I) <= A2(0) AND B2(I);
+		
+	end loop;
+	P2 <= "00000000";
+	for I in 0 to 7 loop
+			P2(I) <= A2(2) AND B2(I);
+		
+	end loop;
+	P1 <= "00000000";
+	for I in 0 to 7 loop
+			P1(I) <= A2(1) AND B2(I);
+		
+	end loop;
+	P3 <= "00000000";
+	for I in 0 to 7 loop
+			P3(I) <= A2(3) AND B2(I);
+		
+	end loop;
+	P4 <= "00000000";
+	for I in 0 to 7 loop
+			P4(I) <= A2(4) AND B2(I);
+		
+	end loop;
+	P5 <= "00000000";
+	for I in 0 to 7 loop
+			P5(I) <= A2(5) AND B2(I);
+		
+	end loop;
+	P6 <= "00000000";
+	for I in 0 to 7 loop
+			P6(I) <= A2(6) AND B2(I);
+		
+	end loop;
+	P7 <= "00000000";
+	for I in 0 to 7 loop
+			P7(I) <= A2(7) AND B2(I);
+		
+	end loop;
+end process;
+end Behavioral;
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity MULTIPLIER0 is
+port (
+A3: in std_logic_vector(7 downto 0);
+B3: in std_logic_vector(7 downto 0);
+S4: out std_logic_vector(15 downto 0));
+end MULTIPLIER0;
+
+architecture Behavioral of MULTIPLIER0  is
+
+signal p0: std_logic_vector(7 downto 0);
+signal p1: std_logic_vector(7 downto 0);
+signal p2: std_logic_vector(7 downto 0);
+signal p3: std_logic_vector(7 downto 0);
+signal p4: std_logic_vector(7 downto 0);
+signal p5: std_logic_vector(7 downto 0);
+signal p6: std_logic_vector(7 downto 0);
+signal p7: std_logic_vector(7 downto 0);
+signal l0: std_logic_vector(7 downto 0);
+signal l1: std_logic_vector(7 downto 0);
+signal l2: std_logic_vector(7 downto 0);
+signal l3: std_logic_vector(7 downto 0);
+signal l4: std_logic_vector(7 downto 0);
+signal l5: std_logic_vector(7 downto 0);
+component Pmaker 
+port (
+A2: in std_logic_vector(7 downto 0);
+B2: in std_logic_vector(7 downto 0);
+P0: out std_logic_vector(7 downto 0);
+P1: out std_logic_vector(7 downto 0);
+P2: out std_logic_vector(7 downto 0);
+P3: out std_logic_vector(7 downto 0);
+P4: out std_logic_vector(7 downto 0);
+P5: out std_logic_vector(7 downto 0);
+P6: out std_logic_vector(7 downto 0);
+P7: out std_logic_vector(7 downto 0)
+);
+end component;
+component carry_propogate_adder
+port(
+Cin: in std_logic;
+Ilow: in std_logic_vector(7 downto 0);
+Ihigh: in std_logic_vector(7 downto 0);
+O: out std_logic_vector( 8 downto 0)
+);
+end component;
+begin
+Pm1: Pmaker 
+port map (
+A2 => A3,
+B2=> B3,
+P0=>p0,
+P1=>p1,
+P2=>p2,
+P3=>p3,
+P4=>p4,
+P5=>p5,
+P6=>p6,
+P7=>p7
+);
+S4(0)<=p0(0);
+CP0:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>'0' & p0(7 downto 1),
+Ihigh=>p1,
+O(8 downto 1)=>l0,
+O(0)=>S4(1)
+);
+CP1:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l0,
+Ihigh=>p2,
+O(8 downto 1)=>l1,
+O(0)=>S4(2)
+);
+CP2:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l1,
+Ihigh=>p3,
+O(8 downto 1)=>l2,
+O(0)=>S4(3)
+);
+CP3:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l2,
+Ihigh=>p4,
+O(8 downto 1)=>l3,
+O(0)=>S4(4)
+);
+CP4:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l3,
+Ihigh=>p5,
+O(8 downto 1)=>l4,
+O(0)=>S4(5)
+);
+CP5:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l4,
+Ihigh=>p6,
+O(8 downto 1)=>l5,
+O(0)=>S4(6)
+);
+CP6:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>l5,
+Ihigh=>p7,
+O(8 downto 1)=>S4(15 downto 8),
+O(0)=>S4(7)
+);
+
+end Behavioral;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity carry_save_adder is
+port(
+Cin1: in std_logic_vector(7 downto 0) ;
+Ilow1: in std_logic_vector(7 downto 0);
+Ihigh1: in std_logic_vector(7 downto 0);
+O1: out std_logic_vector( 7 downto 0);
+Cout:out std_logic_vector( 7 downto 0)
+);
+end carry_save_adder;
+architecture Behavioral of carry_save_adder  is
+component fulladder is
+  Port (
+  I3: in std_logic;
+  I4 : in std_logic;
+  C7 : in std_logic;
+  S3 : out std_logic;
+  C8 : out std_logic
+   );
+end component;
+begin
+ F9: fulladder
+  Port map (
+  I3 => Ilow1(0),
+  I4 => Ihigh1(0),
+  C7 =>Cin1(0),
+  S3 =>O1(0) ,
+  C8 =>Cout(0) 
+  );
+ F10: fulladder
+  Port map (
+  I3 => Ilow1(1),
+  I4 => Ihigh1(1),
+  C7 =>Cin1(1),
+  S3 =>O1(1) ,
+  C8 =>Cout(1) 
+  );
+
+ F11: fulladder
+  Port map (
+  I3 => Ilow1(2),
+  I4 => Ihigh1(2),
+  C7 =>Cin1(2),
+  S3 =>O1(2) ,
+  C8 =>Cout(2) 
+  );
+
+ F12: fulladder
+  Port map (
+  I3 => Ilow1(3),
+  I4 => Ihigh1(3),
+  C7 =>Cin1(3),
+  S3 =>O1(3) ,
+  C8 =>Cout(3) 
+  );
+
+ F13: fulladder
+  Port map (
+  I3 => Ilow1(4),
+  I4 => Ihigh1(4),
+  C7 =>Cin1(4),
+  S3 =>O1(4) ,
+  C8 =>Cout(4) 
+  );
+
+ F14: fulladder
+  Port map (
+  I3 => Ilow1(5),
+  I4 => Ihigh1(5),
+  C7 =>Cin1(5),
+  S3 =>O1(5) ,
+  C8 =>Cout(5) 
+  );
+
+ F15: fulladder
+  Port map (
+  I3 => Ilow1(6),
+  I4 => Ihigh1(6),
+  C7 =>Cin1(6),
+  S3 =>O1(6) ,
+  C8 =>Cout(6) 
+  );
+ F16: fulladder
+  Port map (
+  I3 => Ilow1(7),
+  I4 => Ihigh1(7),
+  C7 =>Cin1(7),
+  S3 =>O1(7) ,
+  C8 =>Cout(7) 
+  );
+end Behavioral;
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+
+entity MULTIPLIER1 is
+port (
+A4: in std_logic_vector(7 downto 0);
+B4: in std_logic_vector(7 downto 0);
+S5: out std_logic_vector(15 downto 0));
+end MULTIPLIER1;
+
+architecture Behavioral of MULTIPLIER1 is 
+signal p8: std_logic_vector(7 downto 0);
+signal p9: std_logic_vector(7 downto 0);
+signal p10: std_logic_vector(7 downto 0);
+signal p11: std_logic_vector(7 downto 0);
+signal p12: std_logic_vector(7 downto 0);
+signal p13: std_logic_vector(7 downto 0);
+signal p14: std_logic_vector(7 downto 0);
+signal p15: std_logic_vector(7 downto 0);
+signal l6: std_logic_vector(7 downto 0);
+signal l7: std_logic_vector(7 downto 0);
+signal l8: std_logic_vector(7 downto 0);
+signal l9: std_logic_vector(7 downto 0);
+signal l10: std_logic_vector(7 downto 0);
+signal l11: std_logic_vector(7 downto 0);
+signal c1: std_logic_vector(7 downto 0);
+signal c2: std_logic_vector(7 downto 0);
+signal c3: std_logic_vector(7 downto 0);
+signal c4: std_logic_vector(7 downto 0);
+signal c5: std_logic_vector(7 downto 0);
+signal c6: std_logic_vector(7 downto 0);
+
+
+component carry_save_adder is
+port(
+Cin1: in std_logic_vector(7 downto 0) ;
+Ilow1: in std_logic_vector(7 downto 0);
+Ihigh1: in std_logic_vector(7 downto 0);
+O1: out std_logic_vector( 7 downto 0);
+Cout:out std_logic_vector( 7 downto 0)
+);
+end component;
+
+component Pmaker 
+port (
+A2: in std_logic_vector(7 downto 0);
+B2: in std_logic_vector(7 downto 0);
+P0: out std_logic_vector(7 downto 0);
+P1: out std_logic_vector(7 downto 0);
+P2: out std_logic_vector(7 downto 0);
+P3: out std_logic_vector(7 downto 0);
+P4: out std_logic_vector(7 downto 0);
+P5: out std_logic_vector(7 downto 0);
+P6: out std_logic_vector(7 downto 0);
+P7: out std_logic_vector(7 downto 0)
+);
+end component;
+component carry_propogate_adder
+port(
+Cin: in std_logic;
+Ilow: in std_logic_vector(7 downto 0);
+Ihigh: in std_logic_vector(7 downto 0);
+O: out std_logic_vector( 8 downto 0)
+);
+end component;
+
+begin
+Pm2: Pmaker 
+port map (
+A2 => A4,
+B2=> B4,
+P0=>p8,
+P1=>p9,
+P2=>p10,
+P3=>p11,
+P4=>p12,
+P5=>p13,
+P6=>p14,
+P7=>p15
+);
+S5(0)<=p8(0);
+CS0: carry_save_adder 
+port map(
+Cin1 =>'0' & p8(7 downto 1) ,
+Ilow1=>p9,
+Ihigh1=>p10(6 downto 0) & '0',
+O1=>l6,
+Cout=>c1
+);
+S5(1)<=l6(0);
+CS1: carry_save_adder 
+port map(
+Cin1 =>c1 ,
+Ilow1=>p10(7) & l6(7 downto 1),
+Ihigh1=>p11(6 downto 0) & '0',
+O1=>l7,
+Cout=>c2
+);
+S5(2)<=l7(0);
+CS2: carry_save_adder 
+port map(
+Cin1 =>c2 ,
+Ilow1=>p11(7) & l7(7 downto 1),
+Ihigh1=>p12(6 downto 0) & '0',
+O1=>l8,
+Cout=>c3
+);
+S5(3)<=l8(0);
+CS3: carry_save_adder 
+port map(
+Cin1 =>c3 ,
+Ilow1=>p12(7) & l8(7 downto 1),
+Ihigh1=>p13(6 downto 0) & '0',
+O1=>l9,
+Cout=>c4
+);
+S5(4)<=l9(0);
+CS4: carry_save_adder 
+port map(
+Cin1 =>c4 ,
+Ilow1=>p13(7) & l9(7 downto 1),
+Ihigh1=>p14(6 downto 0) & '0',
+O1=>l10,
+Cout=>c5
+);
+S5(5)<=l10(0);
+CS5: carry_save_adder 
+port map(
+Cin1 =>c5 ,
+Ilow1=>p14(7) & l10(7 downto 1),
+Ihigh1=>p15(6 downto 0) & '0',
+O1=>l11,
+Cout=>c6
+);
+S5(6)<=l11(0);
+CP7:carry_propogate_adder
+port map(
+Cin=>'0',
+Ilow=>c6,
+Ihigh=>p15(7) & l11(7 downto 1),
+O=>S5(15 downto 7)
+);
+
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+
+entity MULTIPLIER2 is
+port (
+A5: in std_logic_vector(7 downto 0);
+B5: in std_logic_vector(7 downto 0);
+S6: out std_logic_vector(15 downto 0));
+end MULTIPLIER2;
+
+architecture Behavioral of MULTIPLIER2 is 
+signal p16: std_logic_vector(7 downto 0);
+signal p17: std_logic_vector(7 downto 0);
+signal p18: std_logic_vector(7 downto 0);
+signal p19: std_logic_vector(7 downto 0);
+signal p20: std_logic_vector(7 downto 0);
+signal p21: std_logic_vector(7 downto 0);
+signal p22: std_logic_vector(7 downto 0);
+signal p23: std_logic_vector(7 downto 0);
+signal l12: std_logic_vector(7 downto 0);
+signal l13: std_logic_vector(7 downto 0);
+signal l14: std_logic_vector(7 downto 0);
+signal l15: std_logic_vector(7 downto 0);
+signal l16: std_logic_vector(7 downto 0);
+signal l17: std_logic_vector(7 downto 0);
+signal c7: std_logic_vector(7 downto 0);
+signal c8: std_logic_vector(7 downto 0);
+signal c9: std_logic_vector(7 downto 0);
+signal c10: std_logic_vector(7 downto 0);
+signal c11: std_logic_vector(7 downto 0);
+signal c12: std_logic_vector(7 downto 0);
+signal t3:std_logic;
+
+component carry_save_adder is
+port(
+Cin1: in std_logic_vector(7 downto 0) ;
+Ilow1: in std_logic_vector(7 downto 0);
+Ihigh1: in std_logic_vector(7 downto 0);
+O1: out std_logic_vector( 7 downto 0);
+Cout:out std_logic_vector( 7 downto 0)
+);
+end component;
+
+component Pmaker 
+port (
+A2: in std_logic_vector(7 downto 0);
+B2: in std_logic_vector(7 downto 0);
+P0: out std_logic_vector(7 downto 0);
+P1: out std_logic_vector(7 downto 0);
+P2: out std_logic_vector(7 downto 0);
+P3: out std_logic_vector(7 downto 0);
+P4: out std_logic_vector(7 downto 0);
+P5: out std_logic_vector(7 downto 0);
+P6: out std_logic_vector(7 downto 0);
+P7: out std_logic_vector(7 downto 0)
+);
+end component;
+component CLA 
+  Port (
+  A1 : in std_logic_vector(3 downto 0); 
+  B1: in std_logic_vector(3 downto 0);
+  C5: in std_logic;
+  C6: out std_logic;
+  S1: out std_logic_vector(3 downto 0)
+  );
+end component;
+begin
+Pm3: Pmaker 
+port map (
+A2 => A5,
+B2=> B5,
+P0=>p16,
+P1=>p17,
+P2=>p18,
+P3=>p19,
+P4=>p20,
+P5=>p21,
+P6=>p22,
+P7=>p23
+);
+S6(0)<=p16(0);
+CS6: carry_save_adder 
+port map(
+Cin1 =>'0' & p16(7 downto 1) ,
+Ilow1=>p17,
+Ihigh1=>p18(6 downto 0) & '0',
+O1=>l12,
+Cout=>c7
+);
+S6(1)<=l12(0);
+CS7: carry_save_adder 
+port map(
+Cin1 =>c7 ,
+Ilow1=>p18(7) & l12(7 downto 1),
+Ihigh1=>p19(6 downto 0) & '0',
+O1=>l13,
+Cout=>c8
+);
+S6(2)<=l13(0);
+CS8: carry_save_adder 
+port map(
+Cin1 =>c8 ,
+Ilow1=>p19(7) & l13(7 downto 1),
+Ihigh1=>p20(6 downto 0) & '0',
+O1=>l14,
+Cout=>c9
+);
+S6(3)<=l14(0);
+CS9: carry_save_adder 
+port map(
+Cin1 =>c9 ,
+Ilow1=>p20(7) & l14(7 downto 1),
+Ihigh1=>p21(6 downto 0) & '0',
+O1=>l15,
+Cout=>c10
+);
+S6(4)<=l15(0);
+CS10: carry_save_adder 
+port map(
+Cin1 =>c10 ,
+Ilow1=>p21(7) & l15(7 downto 1),
+Ihigh1=>p22(6 downto 0) & '0',
+O1=>l16,
+Cout=>c11
+);
+S6(5)<=l16(0);
+CS11: carry_save_adder 
+port map(
+Cin1 =>c11 ,
+Ilow1=>p22(7) & l16(7 downto 1),
+Ihigh1=>p23(6 downto 0) & '0',
+O1=>l17,
+Cout=>c12
+);
+S6(6)<=l17(0);
+CL0:  CLA
+Port map(
+  A1=>c12(3 downto 0) ,
+  B1=>l17(4 downto 1),
+  C5=>'0',
+  C6=>t3,
+  S1=>S6(10 downto 7)
+  );
+CL1:  CLA
+Port map(
+  A1=>c12(7 downto 4) ,
+  B1=>p23(7) & l17(7 downto 5),
+  C5=>'0',
+  C6=>S6(15),
+  S1=>S6(14 downto 11)
+  );
+ end Behavioral;
+ 
+ 
+ library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity multiplexer3_1 is
+port(
+M0:in std_logic_vector(15 downto 0);
+M1:in std_logic_vector(15 downto 0);
+M2:in std_logic_vector(15 downto 0);
+sel:in std_logic_vector(1 downto 0);
+X:out std_logic_vector(15 downto 0)
+);
+end multiplexer3_1;
+architecture Behavioral of multiplexer3_1 is 
+begin
+process(M0,M1,M2,sel)
+begin
+      case sel is
+      when "00" => X<= M0;
+      when "01" => X <= M1;
+      when "10" => X <= M2;
+      when others => NULL;
+      end case;
+end process;
+end Behavioral;
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity OR6_HXILINX_lab4_seven_segment_display is
+  
+port(
+    O  : out std_logic;
+
+    I0  : in std_logic;
+    I1  : in std_logic;
+    I2  : in std_logic;
+    I3  : in std_logic;
+    I4  : in std_logic;
+    I5  : in std_logic
+  );
+end OR6_HXILINX_lab4_seven_segment_display;
+
+architecture OR6_HXILINX_lab4_seven_segment_display_V of OR6_HXILINX_lab4_seven_segment_display is
+begin
+  O <=  (I0 or I1 or I2 or I3 or I4 or I5);
+end OR6_HXILINX_lab4_seven_segment_display_V;
+----- CELL M2_1_HXILINX_lab4_seven_segment_display -----
+  
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity M2_1_HXILINX_lab4_seven_segment_display is
+  
+port(
+    O   : out std_logic;
+
+    D0  : in std_logic;
+    D1  : in std_logic;
+    S0  : in std_logic
+  );
+end M2_1_HXILINX_lab4_seven_segment_display;
+
+architecture M2_1_HXILINX_lab4_seven_segment_display_V of M2_1_HXILINX_lab4_seven_segment_display is
+begin
+  process (D0, D1, S0)
+  begin
+    case S0 is
+    when '0' => O <= D0;
+    when '1' => O <= D1;
+    when others => NULL;
+    end case;
+    end process; 
+end M2_1_HXILINX_lab4_seven_segment_display_V;
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity finalclock_MUSER_lab4_seven_segment_display is
+   port ( clk       : in    std_logic; 
+          slowclock : out   std_logic);
+end finalclock_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of finalclock_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_64         : std_logic;
+   signal XLXN_65         : std_logic;
+   signal XLXN_70         : std_logic;
+   signal XLXN_73         : std_logic;
+   signal XLXN_77         : std_logic;
+   signal XLXN_79         : std_logic;
+   signal XLXN_82         : std_logic;
+   signal XLXN_85         : std_logic;
+   signal XLXN_88         : std_logic;
+   signal XLXN_92         : std_logic;
+   signal XLXN_94         : std_logic;
+   signal XLXN_97         : std_logic;
+   signal XLXN_100        : std_logic;
+   signal XLXN_104        : std_logic;
+   signal XLXN_106        : std_logic;
+   signal XLXN_113        : std_logic;
+   signal XLXN_115        : std_logic;
+   signal XLXN_117        : std_logic;
+   signal XLXN_118        : std_logic;
+   signal XLXN_119        : std_logic;
+   signal XLXN_120        : std_logic;
+   signal XLXN_121        : std_logic;
+   signal XLXN_122        : std_logic;
+   signal XLXN_123        : std_logic;
+   signal XLXN_124        : std_logic;
+   signal XLXN_125        : std_logic;
+   signal XLXN_126        : std_logic;
+   signal XLXN_128        : std_logic;
+   signal XLXN_129        : std_logic;
+   signal XLXN_130        : std_logic;
+   signal XLXN_131        : std_logic;
+   signal XLXN_132        : std_logic;
+   signal XLXN_134        : std_logic;
+   signal slowclock_DUMMY : std_logic;
+   component FD
+      generic( INIT : bit :=  '0');
+      port ( C : in    std_logic; 
+             D : in    std_logic; 
+             Q : out   std_logic);
+   end component;
+   attribute BOX_TYPE of FD : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+begin
+   slowclock <= slowclock_DUMMY;
+   XLXI_17 : FD
+      port map (C=>clk,
+                D=>XLXN_65,
+                Q=>XLXN_113);
+   
+   XLXI_34 : INV
+      port map (I=>XLXN_113,
+                O=>XLXN_65);
+   
+   XLXI_37 : FD
+      port map (C=>XLXN_113,
+                D=>XLXN_117,
+                Q=>XLXN_64);
+   
+   XLXI_38 : INV
+      port map (I=>XLXN_64,
+                O=>XLXN_117);
+   
+   XLXI_39 : FD
+      port map (C=>XLXN_64,
+                D=>XLXN_118,
+                Q=>XLXN_70);
+   
+   XLXI_40 : INV
+      port map (I=>XLXN_70,
+                O=>XLXN_118);
+   
+   XLXI_41 : FD
+      port map (C=>XLXN_70,
+                D=>XLXN_119,
+                Q=>XLXN_73);
+   
+   XLXI_42 : INV
+      port map (I=>XLXN_73,
+                O=>XLXN_119);
+   
+   XLXI_43 : FD
+      port map (C=>XLXN_73,
+                D=>XLXN_120,
+                Q=>XLXN_77);
+   
+   XLXI_44 : INV
+      port map (I=>XLXN_77,
+                O=>XLXN_120);
+   
+   XLXI_45 : FD
+      port map (C=>XLXN_77,
+                D=>XLXN_121,
+                Q=>XLXN_79);
+   
+   XLXI_46 : INV
+      port map (I=>XLXN_79,
+                O=>XLXN_121);
+   
+   XLXI_47 : FD
+      port map (C=>XLXN_79,
+                D=>XLXN_122,
+                Q=>XLXN_82);
+   
+   XLXI_48 : INV
+      port map (I=>XLXN_82,
+                O=>XLXN_122);
+   
+   XLXI_49 : FD
+      port map (C=>XLXN_82,
+                D=>XLXN_123,
+                Q=>XLXN_85);
+   
+   XLXI_50 : INV
+      port map (I=>XLXN_85,
+                O=>XLXN_123);
+   
+   XLXI_51 : FD
+      port map (C=>XLXN_85,
+                D=>XLXN_124,
+                Q=>XLXN_88);
+   
+   XLXI_52 : INV
+      port map (I=>XLXN_88,
+                O=>XLXN_124);
+   
+   XLXI_53 : FD
+      port map (C=>XLXN_88,
+                D=>XLXN_125,
+                Q=>XLXN_92);
+   
+   XLXI_54 : INV
+      port map (I=>XLXN_92,
+                O=>XLXN_125);
+   
+   XLXI_55 : FD
+      port map (C=>XLXN_92,
+                D=>XLXN_126,
+                Q=>XLXN_94);
+   
+   XLXI_56 : INV
+      port map (I=>XLXN_94,
+                O=>XLXN_126);
+   
+   XLXI_57 : FD
+      port map (C=>XLXN_94,
+                D=>XLXN_134,
+                Q=>XLXN_97);
+   
+   XLXI_58 : INV
+      port map (I=>XLXN_97,
+                O=>XLXN_134);
+   
+   XLXI_59 : FD
+      port map (C=>XLXN_97,
+                D=>XLXN_128,
+                Q=>XLXN_100);
+   
+   XLXI_60 : INV
+      port map (I=>XLXN_100,
+                O=>XLXN_128);
+   
+   XLXI_61 : FD
+      port map (C=>XLXN_100,
+                D=>XLXN_129,
+                Q=>XLXN_104);
+   
+   XLXI_62 : INV
+      port map (I=>XLXN_104,
+                O=>XLXN_129);
+   
+   XLXI_63 : FD
+      port map (C=>XLXN_104,
+                D=>XLXN_130,
+                Q=>XLXN_106);
+   
+   XLXI_64 : INV
+      port map (I=>XLXN_106,
+                O=>XLXN_130);
+   
+   XLXI_65 : FD
+      port map (C=>XLXN_106,
+                D=>XLXN_131,
+                Q=>XLXN_115);
+   
+   XLXI_66 : INV
+      port map (I=>XLXN_115,
+                O=>XLXN_131);
+   
+   XLXI_67 : FD
+      port map (C=>XLXN_115,
+                D=>XLXN_132,
+                Q=>slowclock_DUMMY);
+   
+   XLXI_68 : INV
+      port map (I=>slowclock_DUMMY,
+                O=>XLXN_132);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity gcorrected_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          G : out   std_logic);
+end gcorrected_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of gcorrected_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_2  : std_logic;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_10 : std_logic;
+   signal XLXN_11 : std_logic;
+   signal XLXN_12 : std_logic;
+   signal XLXN_15 : std_logic;
+   signal XLXN_29 : std_logic;
+   signal XLXN_30 : std_logic;
+   signal XLXN_31 : std_logic;
+   signal XLXN_32 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR4 : component is "BLACK_BOX";
+   
+begin
+   XLXI_1 : AND4
+      port map (I0=>XLXN_5,
+                I1=>XLXN_4,
+                I2=>XLXN_3,
+                I3=>XLXN_2,
+                O=>XLXN_29);
+   
+   XLXI_2 : AND4
+      port map (I0=>XLXN_9,
+                I1=>XLXN_8,
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_31);
+   
+   XLXI_3 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_12,
+                I2=>XLXN_11,
+                I3=>XLXN_10,
+                O=>XLXN_30);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>b(1),
+                I2=>b(2),
+                I3=>XLXN_15,
+                O=>XLXN_32);
+   
+   XLXI_5 : INV
+      port map (I=>b(3),
+                O=>XLXN_2);
+   
+   XLXI_6 : INV
+      port map (I=>b(2),
+                O=>XLXN_3);
+   
+   XLXI_7 : INV
+      port map (I=>b(1),
+                O=>XLXN_4);
+   
+   XLXI_8 : INV
+      port map (I=>b(0),
+                O=>XLXN_5);
+   
+   XLXI_9 : INV
+      port map (I=>b(1),
+                O=>XLXN_8);
+   
+   XLXI_10 : INV
+      port map (I=>b(0),
+                O=>XLXN_9);
+   
+   XLXI_11 : INV
+      port map (I=>b(3),
+                O=>XLXN_10);
+   
+   XLXI_12 : INV
+      port map (I=>b(2),
+                O=>XLXN_11);
+   
+   XLXI_13 : INV
+      port map (I=>b(1),
+                O=>XLXN_12);
+   
+   XLXI_14 : INV
+      port map (I=>b(3),
+                O=>XLXN_15);
+   
+   XLXI_15 : OR4
+      port map (I0=>XLXN_32,
+                I1=>XLXN_31,
+                I2=>XLXN_30,
+                I3=>XLXN_29,
+                O=>G);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity FLogicFFinal_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          F : out   std_logic);
+end FLogicFFinal_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of FLogicFFinal_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_2  : std_logic;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_79 : std_logic;
+   signal XLXN_80 : std_logic;
+   signal XLXN_81 : std_logic;
+   signal XLXN_82 : std_logic;
+   signal XLXN_83 : std_logic;
+   signal XLXN_86 : std_logic;
+   signal XLXN_87 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR5
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             I4 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR5 : component is "BLACK_BOX";
+   
+begin
+   XLXI_1 : AND4
+      port map (I0=>XLXN_4,
+                I1=>XLXN_3,
+                I2=>b(1),
+                I3=>XLXN_2,
+                O=>XLXN_79);
+   
+   XLXI_2 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_7,
+                I2=>XLXN_6,
+                I3=>XLXN_5,
+                O=>XLXN_83);
+   
+   XLXI_3 : AND4
+      port map (I0=>b(1),
+                I1=>XLXN_8,
+                I2=>b(2),
+                I3=>b(0),
+                O=>XLXN_80);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>b(2),
+                I2=>XLXN_9,
+                I3=>b(3),
+                O=>XLXN_81);
+   
+   XLXI_5 : INV
+      port map (I=>b(2),
+                O=>XLXN_2);
+   
+   XLXI_6 : INV
+      port map (I=>b(3),
+                O=>XLXN_3);
+   
+   XLXI_7 : INV
+      port map (I=>b(0),
+                O=>XLXN_4);
+   
+   XLXI_8 : INV
+      port map (I=>b(3),
+                O=>XLXN_5);
+   
+   XLXI_9 : INV
+      port map (I=>b(1),
+                O=>XLXN_6);
+   
+   XLXI_10 : INV
+      port map (I=>b(2),
+                O=>XLXN_7);
+   
+   XLXI_11 : INV
+      port map (I=>b(3),
+                O=>XLXN_8);
+   
+   XLXI_12 : INV
+      port map (I=>b(1),
+                O=>XLXN_9);
+   
+   XLXI_36 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_87,
+                I2=>b(1),
+                I3=>XLXN_86,
+                O=>XLXN_82);
+   
+   XLXI_37 : OR5
+      port map (I0=>XLXN_83,
+                I1=>XLXN_82,
+                I2=>XLXN_81,
+                I3=>XLXN_80,
+                I4=>XLXN_79,
+                O=>F);
+   
+   XLXI_39 : INV
+      port map (I=>b(2),
+                O=>XLXN_86);
+   
+   XLXI_40 : INV
+      port map (I=>b(3),
+                O=>XLXN_87);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity ELogicFFinal_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          E : out   std_logic);
+end ELogicFFinal_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of ELogicFFinal_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   attribute HU_SET     : string ;
+   signal XLXN_3   : std_logic;
+   signal XLXN_4   : std_logic;
+   signal XLXN_5   : std_logic;
+   signal XLXN_7   : std_logic;
+   signal XLXN_8   : std_logic;
+   signal XLXN_9   : std_logic;
+   signal XLXN_79  : std_logic;
+   signal XLXN_80  : std_logic;
+   signal XLXN_81  : std_logic;
+   signal XLXN_82  : std_logic;
+   signal XLXN_83  : std_logic;
+   signal XLXN_86  : std_logic;
+   signal XLXN_87  : std_logic;
+   signal XLXN_97  : std_logic;
+   signal XLXN_99  : std_logic;
+   signal XLXN_100 : std_logic;
+   signal XLXN_103 : std_logic;
+   signal XLXN_105 : std_logic;
+   signal XLXN_106 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR6_HXILINX_lab4_seven_segment_display
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             I4 : in    std_logic; 
+             I5 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   
+   attribute HU_SET of XLXI_44 : label is "XLXI_44_0";
+begin
+   XLXI_1 : AND4
+      port map (I0=>XLXN_4,
+                I1=>XLXN_3,
+                I2=>b(2),
+                I3=>XLXN_100,
+                O=>XLXN_79);
+   
+   XLXI_2 : AND4
+      port map (I0=>XLXN_106,
+                I1=>XLXN_7,
+                I2=>b(0),
+                I3=>XLXN_5,
+                O=>XLXN_83);
+   
+   XLXI_3 : AND4
+      port map (I0=>XLXN_103,
+                I1=>XLXN_8,
+                I2=>b(3),
+                I3=>b(0),
+                O=>XLXN_80);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_105,
+                I2=>XLXN_9,
+                I3=>b(1),
+                O=>XLXN_81);
+   
+   XLXI_6 : INV
+      port map (I=>b(1),
+                O=>XLXN_3);
+   
+   XLXI_7 : INV
+      port map (I=>b(0),
+                O=>XLXN_4);
+   
+   XLXI_8 : INV
+      port map (I=>b(1),
+                O=>XLXN_5);
+   
+   XLXI_10 : INV
+      port map (I=>b(2),
+                O=>XLXN_7);
+   
+   XLXI_11 : INV
+      port map (I=>b(2),
+                O=>XLXN_8);
+   
+   XLXI_12 : INV
+      port map (I=>b(3),
+                O=>XLXN_9);
+   
+   XLXI_36 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_87,
+                I2=>b(2),
+                I3=>XLXN_86,
+                O=>XLXN_82);
+   
+   XLXI_39 : INV
+      port map (I=>b(1),
+                O=>XLXN_86);
+   
+   XLXI_40 : INV
+      port map (I=>b(3),
+                O=>XLXN_87);
+   
+   XLXI_41 : AND4
+      port map (I0=>b(0),
+                I1=>b(1),
+                I2=>b(2),
+                I3=>XLXN_99,
+                O=>XLXN_97);
+   
+   XLXI_42 : INV
+      port map (I=>b(3),
+                O=>XLXN_99);
+   
+   XLXI_44 : OR6_HXILINX_lab4_seven_segment_display
+      port map (I0=>XLXN_83,
+                I1=>XLXN_82,
+                I2=>XLXN_81,
+                I3=>XLXN_80,
+                I4=>XLXN_79,
+                I5=>XLXN_97,
+                O=>E);
+   
+   XLXI_45 : INV
+      port map (I=>b(3),
+                O=>XLXN_100);
+   
+   XLXI_46 : INV
+      port map (I=>b(3),
+                O=>XLXN_106);
+   
+   XLXI_47 : INV
+      port map (I=>b(1),
+                O=>XLXN_103);
+   
+   XLXI_48 : INV
+      port map (I=>b(2),
+                O=>XLXN_105);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity DFinalFLogic_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          D : out   std_logic);
+end DFinalFLogic_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of DFinalFLogic_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_5  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_79 : std_logic;
+   signal XLXN_80 : std_logic;
+   signal XLXN_81 : std_logic;
+   signal XLXN_82 : std_logic;
+   signal XLXN_83 : std_logic;
+   signal XLXN_86 : std_logic;
+   signal XLXN_87 : std_logic;
+   signal XLXN_88 : std_logic;
+   signal XLXN_89 : std_logic;
+   signal XLXN_91 : std_logic;
+   signal XLXN_92 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR5
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             I4 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR5 : component is "BLACK_BOX";
+   
+begin
+   XLXI_1 : AND4
+      port map (I0=>b(0),
+                I1=>b(1),
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_79);
+   
+   XLXI_2 : AND4
+      port map (I0=>b(0),
+                I1=>b(2),
+                I2=>b(1),
+                I3=>XLXN_5,
+                O=>XLXN_83);
+   
+   XLXI_3 : AND4
+      port map (I0=>XLXN_92,
+                I1=>XLXN_8,
+                I2=>b(2),
+                I3=>XLXN_88,
+                O=>XLXN_80);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_89,
+                I2=>XLXN_9,
+                I3=>XLXN_91,
+                O=>XLXN_81);
+   
+   XLXI_8 : INV
+      port map (I=>b(3),
+                O=>XLXN_5);
+   
+   XLXI_12 : INV
+      port map (I=>b(2),
+                O=>XLXN_9);
+   
+   XLXI_36 : AND4
+      port map (I0=>b(3),
+                I1=>XLXN_87,
+                I2=>b(1),
+                I3=>XLXN_86,
+                O=>XLXN_82);
+   
+   XLXI_37 : OR5
+      port map (I0=>XLXN_83,
+                I1=>XLXN_82,
+                I2=>XLXN_81,
+                I3=>XLXN_80,
+                I4=>XLXN_79,
+                O=>D);
+   
+   XLXI_39 : INV
+      port map (I=>b(0),
+                O=>XLXN_86);
+   
+   XLXI_40 : INV
+      port map (I=>b(2),
+                O=>XLXN_87);
+   
+   XLXI_41 : INV
+      port map (I=>b(3),
+                O=>XLXN_91);
+   
+   XLXI_42 : INV
+      port map (I=>b(1),
+                O=>XLXN_89);
+   
+   XLXI_44 : INV
+      port map (I=>b(0),
+                O=>XLXN_92);
+   
+   XLXI_45 : INV
+      port map (I=>b(1),
+                O=>XLXN_8);
+   
+   XLXI_47 : INV
+      port map (I=>b(3),
+                O=>XLXN_88);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity CLogic_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          C : out   std_logic);
+end CLogic_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of CLogic_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_26 : std_logic;
+   signal XLXN_27 : std_logic;
+   signal XLXN_28 : std_logic;
+   signal XLXN_29 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR4 : component is "BLACK_BOX";
+   
+begin
+   XLXI_1 : AND4
+      port map (I0=>XLXN_4,
+                I1=>XLXN_3,
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_29);
+   
+   XLXI_2 : AND4
+      port map (I0=>b(1),
+                I1=>XLXN_7,
+                I2=>XLXN_6,
+                I3=>XLXN_5,
+                O=>XLXN_26);
+   
+   XLXI_3 : AND4
+      port map (I0=>b(1),
+                I1=>XLXN_8,
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_27);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>b(1),
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_28);
+   
+   XLXI_6 : INV
+      port map (I=>b(1),
+                O=>XLXN_3);
+   
+   XLXI_7 : INV
+      port map (I=>b(0),
+                O=>XLXN_4);
+   
+   XLXI_8 : INV
+      port map (I=>b(3),
+                O=>XLXN_5);
+   
+   XLXI_9 : INV
+      port map (I=>b(2),
+                O=>XLXN_6);
+   
+   XLXI_10 : INV
+      port map (I=>b(0),
+                O=>XLXN_7);
+   
+   XLXI_11 : INV
+      port map (I=>b(0),
+                O=>XLXN_8);
+   
+   XLXI_13 : OR4
+      port map (I0=>XLXN_28,
+                I1=>XLXN_27,
+                I2=>XLXN_26,
+                I3=>XLXN_29,
+                O=>C);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity BFinalFLogic_MUSER_lab4_seven_segment_display is
+   port ( bin    : in    std_logic_vector (3 downto 0); 
+          Blogic : out   std_logic);
+end BFinalFLogic_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of BFinalFLogic_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   attribute HU_SET     : string ;
+   signal XLXN_2  : std_logic;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_35 : std_logic;
+   signal XLXN_36 : std_logic;
+   signal XLXN_37 : std_logic;
+   signal XLXN_38 : std_logic;
+   signal XLXN_39 : std_logic;
+   signal XLXN_40 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR6_HXILINX_lab4_seven_segment_display
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             I4 : in    std_logic; 
+             I5 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   
+   attribute HU_SET of XLXI_15 : label is "XLXI_15_1";
+begin
+   XLXI_1 : AND4
+      port map (I0=>bin(3),
+                I1=>bin(2),
+                I2=>XLXN_3,
+                I3=>XLXN_2,
+                O=>XLXN_40);
+   
+   XLXI_2 : AND4
+      port map (I0=>XLXN_5,
+                I1=>bin(0),
+                I2=>bin(2),
+                I3=>XLXN_4,
+                O=>XLXN_39);
+   
+   XLXI_3 : AND4
+      port map (I0=>XLXN_7,
+                I1=>bin(1),
+                I2=>bin(2),
+                I3=>bin(3),
+                O=>XLXN_38);
+   
+   XLXI_4 : AND4
+      port map (I0=>XLXN_6,
+                I1=>bin(0),
+                I2=>bin(1),
+                I3=>bin(3),
+                O=>XLXN_37);
+   
+   XLXI_5 : AND4
+      port map (I0=>bin(2),
+                I1=>XLXN_9,
+                I2=>bin(1),
+                I3=>XLXN_8,
+                O=>XLXN_35);
+   
+   XLXI_6 : AND4
+      port map (I0=>bin(0),
+                I1=>bin(1),
+                I2=>bin(2),
+                I3=>bin(3),
+                O=>XLXN_36);
+   
+   XLXI_7 : INV
+      port map (I=>bin(0),
+                O=>XLXN_2);
+   
+   XLXI_8 : INV
+      port map (I=>bin(1),
+                O=>XLXN_3);
+   
+   XLXI_9 : INV
+      port map (I=>bin(1),
+                O=>XLXN_4);
+   
+   XLXI_10 : INV
+      port map (I=>bin(3),
+                O=>XLXN_5);
+   
+   XLXI_11 : INV
+      port map (I=>bin(2),
+                O=>XLXN_6);
+   
+   XLXI_12 : INV
+      port map (I=>bin(0),
+                O=>XLXN_7);
+   
+   XLXI_13 : INV
+      port map (I=>bin(3),
+                O=>XLXN_8);
+   
+   XLXI_14 : INV
+      port map (I=>bin(0),
+                O=>XLXN_9);
+   
+   XLXI_15 : OR6_HXILINX_lab4_seven_segment_display
+      port map (I0=>XLXN_36,
+                I1=>XLXN_37,
+                I2=>XLXN_39,
+                I3=>XLXN_40,
+                I4=>XLXN_38,
+                I5=>XLXN_35,
+                O=>Blogic);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity ALogic_MUSER_lab4_seven_segment_display is
+   port ( b : in    std_logic_vector (3 downto 0); 
+          A : out   std_logic);
+end ALogic_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of ALogic_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_2  : std_logic;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_27 : std_logic;
+   signal XLXN_28 : std_logic;
+   signal XLXN_29 : std_logic;
+   signal XLXN_30 : std_logic;
+   component AND4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND4 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR4 : component is "BLACK_BOX";
+   
+begin
+   XLXI_1 : AND4
+      port map (I0=>XLXN_4,
+                I1=>XLXN_3,
+                I2=>b(2),
+                I3=>XLXN_2,
+                O=>XLXN_30);
+   
+   XLXI_2 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_7,
+                I2=>XLXN_6,
+                I3=>XLXN_5,
+                O=>XLXN_27);
+   
+   XLXI_3 : AND4
+      port map (I0=>b(0),
+                I1=>XLXN_8,
+                I2=>b(2),
+                I3=>b(3),
+                O=>XLXN_28);
+   
+   XLXI_4 : AND4
+      port map (I0=>b(0),
+                I1=>b(1),
+                I2=>XLXN_9,
+                I3=>b(3),
+                O=>XLXN_29);
+   
+   XLXI_5 : INV
+      port map (I=>b(3),
+                O=>XLXN_2);
+   
+   XLXI_6 : INV
+      port map (I=>b(1),
+                O=>XLXN_3);
+   
+   XLXI_7 : INV
+      port map (I=>b(0),
+                O=>XLXN_4);
+   
+   XLXI_8 : INV
+      port map (I=>b(3),
+                O=>XLXN_5);
+   
+   XLXI_9 : INV
+      port map (I=>b(2),
+                O=>XLXN_6);
+   
+   XLXI_10 : INV
+      port map (I=>b(1),
+                O=>XLXN_7);
+   
+   XLXI_11 : INV
+      port map (I=>b(1),
+                O=>XLXN_8);
+   
+   XLXI_12 : INV
+      port map (I=>b(2),
+                O=>XLXN_9);
+   
+   XLXI_13 : OR4
+      port map (I0=>XLXN_29,
+                I1=>XLXN_28,
+                I2=>XLXN_27,
+                I3=>XLXN_30,
+                O=>A);
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity ringandmuxfinal_MUSER_lab4_seven_segment_display is
+   port ( clk     : in    std_logic; 
+          mode    : in    std_logic; 
+          slowclk : in    std_logic; 
+          anode   : out   std_logic_vector (3 downto 0));
+end ringandmuxfinal_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of ringandmuxfinal_MUSER_lab4_seven_segment_display is
+   attribute HU_SET     : string ;
+   attribute BOX_TYPE   : string ;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_10 : std_logic;
+   component M2_1_HXILINX_lab4_seven_segment_display
+      port ( D0 : in    std_logic; 
+             D1 : in    std_logic; 
+             S0 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   
+   component FD
+      generic( INIT : bit :=  '0');
+      port ( C : in    std_logic; 
+             D : in    std_logic; 
+             Q : out   std_logic);
+   end component;
+   attribute BOX_TYPE of FD : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   attribute HU_SET of XLXI_1 : label is "XLXI_1_2";
+begin
+   XLXI_1 : M2_1_HXILINX_lab4_seven_segment_display
+      port map (D0=>slowclk,
+                D1=>clk,
+                S0=>mode,
+                O=>XLXN_9);
+   
+   XLXI_2 : FD
+   generic map( INIT => '1')
+      port map (C=>XLXN_9,
+                D=>XLXN_10,
+                Q=>XLXN_6);
+   
+   XLXI_3 : FD
+      port map (C=>XLXN_9,
+                D=>XLXN_6,
+                Q=>XLXN_7);
+   
+   XLXI_4 : FD
+      port map (C=>XLXN_9,
+                D=>XLXN_7,
+                Q=>XLXN_8);
+   
+   XLXI_5 : FD
+      port map (C=>XLXN_9,
+                D=>XLXN_8,
+                Q=>XLXN_10);
+   
+   XLXI_6 : INV
+      port map (I=>XLXN_6,
+                O=>anode(0));
+   
+   XLXI_7 : INV
+      port map (I=>XLXN_7,
+                O=>anode(1));
+   
+   XLXI_8 : INV
+      port map (I=>XLXN_8,
+                O=>anode(2));
+   
+   XLXI_9 : INV
+      port map (I=>XLXN_10,
+                O=>anode(3));
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity lab4mux16_MUSER_lab4_seven_segment_display is
+   port ( anode : in    std_logic_vector (3 downto 0); 
+          b     : in    std_logic_vector (15 downto 0); 
+          o     : out   std_logic_vector (3 downto 0));
+end lab4mux16_MUSER_lab4_seven_segment_display;
+
+architecture BEHAVIORAL of lab4mux16_MUSER_lab4_seven_segment_display is
+   attribute BOX_TYPE   : string ;
+   signal XLXN_3  : std_logic;
+   signal XLXN_4  : std_logic;
+   signal XLXN_5  : std_logic;
+   signal XLXN_6  : std_logic;
+   signal XLXN_7  : std_logic;
+   signal XLXN_8  : std_logic;
+   signal XLXN_9  : std_logic;
+   signal XLXN_10 : std_logic;
+   signal XLXN_11 : std_logic;
+   signal XLXN_12 : std_logic;
+   signal XLXN_13 : std_logic;
+   signal XLXN_14 : std_logic;
+   signal XLXN_15 : std_logic;
+   signal XLXN_18 : std_logic;
+   signal XLXN_19 : std_logic;
+   signal XLXN_20 : std_logic;
+   signal XLXN_54 : std_logic;
+   signal XLXN_55 : std_logic;
+   signal XLXN_56 : std_logic;
+   signal XLXN_57 : std_logic;
+   signal XLXN_58 : std_logic;
+   signal XLXN_59 : std_logic;
+   signal XLXN_60 : std_logic;
+   signal XLXN_61 : std_logic;
+   signal XLXN_62 : std_logic;
+   signal XLXN_63 : std_logic;
+   signal XLXN_64 : std_logic;
+   signal XLXN_65 : std_logic;
+   signal XLXN_66 : std_logic;
+   signal XLXN_67 : std_logic;
+   signal XLXN_68 : std_logic;
+   signal XLXN_69 : std_logic;
+   component AND2
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of AND2 : component is "BLACK_BOX";
+   
+   component INV
+      port ( I : in    std_logic; 
+             O : out   std_logic);
+   end component;
+   attribute BOX_TYPE of INV : component is "BLACK_BOX";
+   
+   component OR4
+      port ( I0 : in    std_logic; 
+             I1 : in    std_logic; 
+             I2 : in    std_logic; 
+             I3 : in    std_logic; 
+             O  : out   std_logic);
+   end component;
+   attribute BOX_TYPE of OR4 : component is "BLACK_BOX";
+   
+begin
+   XLXI_3 : AND2
+      port map (I0=>b(8),
+                I1=>XLXN_11,
+                O=>XLXN_56);
+   
+   XLXI_4 : AND2
+      port map (I0=>b(9),
+                I1=>XLXN_12,
+                O=>XLXN_59);
+   
+   XLXI_5 : AND2
+      port map (I0=>b(10),
+                I1=>XLXN_13,
+                O=>XLXN_63);
+   
+   XLXI_6 : AND2
+      port map (I0=>b(11),
+                I1=>XLXN_14,
+                O=>XLXN_69);
+   
+   XLXI_7 : AND2
+      port map (I0=>b(12),
+                I1=>XLXN_15,
+                O=>XLXN_57);
+   
+   XLXI_8 : AND2
+      port map (I0=>b(13),
+                I1=>XLXN_19,
+                O=>XLXN_61);
+   
+   XLXI_9 : AND2
+      port map (I0=>b(14),
+                I1=>XLXN_18,
+                O=>XLXN_65);
+   
+   XLXI_10 : AND2
+      port map (I0=>b(15),
+                I1=>XLXN_20,
+                O=>XLXN_68);
+   
+   XLXI_11 : AND2
+      port map (I0=>XLXN_3,
+                I1=>b(0),
+                O=>XLXN_54);
+   
+   XLXI_12 : AND2
+      port map (I0=>XLXN_4,
+                I1=>b(1),
+                O=>XLXN_58);
+   
+   XLXI_13 : AND2
+      port map (I0=>XLXN_5,
+                I1=>b(2),
+                O=>XLXN_62);
+   
+   XLXI_14 : AND2
+      port map (I0=>XLXN_6,
+                I1=>b(3),
+                O=>XLXN_66);
+   
+   XLXI_15 : AND2
+      port map (I0=>b(4),
+                I1=>XLXN_7,
+                O=>XLXN_55);
+   
+   XLXI_16 : AND2
+      port map (I0=>b(5),
+                I1=>XLXN_8,
+                O=>XLXN_60);
+   
+   XLXI_17 : AND2
+      port map (I0=>b(6),
+                I1=>XLXN_9,
+                O=>XLXN_64);
+   
+   XLXI_18 : AND2
+      port map (I0=>b(7),
+                I1=>XLXN_10,
+                O=>XLXN_67);
+   
+   XLXI_27 : INV
+      port map (I=>anode(0),
+                O=>XLXN_3);
+   
+   XLXI_28 : INV
+      port map (I=>anode(0),
+                O=>XLXN_4);
+   
+   XLXI_29 : INV
+      port map (I=>anode(0),
+                O=>XLXN_5);
+   
+   XLXI_30 : INV
+      port map (I=>anode(0),
+                O=>XLXN_6);
+   
+   XLXI_31 : INV
+      port map (I=>anode(1),
+                O=>XLXN_7);
+   
+   XLXI_32 : INV
+      port map (I=>anode(1),
+                O=>XLXN_8);
+   
+   XLXI_33 : INV
+      port map (I=>anode(1),
+                O=>XLXN_9);
+   
+   XLXI_34 : INV
+      port map (I=>anode(1),
+                O=>XLXN_10);
+   
+   XLXI_35 : INV
+      port map (I=>anode(2),
+                O=>XLXN_11);
+   
+   XLXI_36 : INV
+      port map (I=>anode(2),
+                O=>XLXN_12);
+   
+   XLXI_37 : INV
+      port map (I=>anode(2),
+                O=>XLXN_13);
+   
+   XLXI_38 : INV
+      port map (I=>anode(2),
+                O=>XLXN_14);
+   
+   XLXI_39 : INV
+      port map (I=>anode(3),
+                O=>XLXN_15);
+   
+   XLXI_40 : INV
+      port map (I=>anode(3),
+                O=>XLXN_20);
+   
+   XLXI_43 : INV
+      port map (I=>anode(3),
+                O=>XLXN_18);
+   
+   XLXI_44 : INV
+      port map (I=>anode(3),
+                O=>XLXN_19);
+   
+   XLXI_45 : OR4
+      port map (I0=>XLXN_57,
+                I1=>XLXN_56,
+                I2=>XLXN_55,
+                I3=>XLXN_54,
+                O=>o(0));
+   
+   XLXI_46 : OR4
+      port map (I0=>XLXN_61,
+                I1=>XLXN_60,
+                I2=>XLXN_59,
+                I3=>XLXN_58,
+                O=>o(1));
+   
+   XLXI_47 : OR4
+      port map (I0=>XLXN_65,
+                I1=>XLXN_64,
+                I2=>XLXN_63,
+                I3=>XLXN_62,
+                O=>o(2));
+   
+   XLXI_48 : OR4
+      port map (I0=>XLXN_69,
+                I1=>XLXN_68,
+                I2=>XLXN_67,
+                I3=>XLXN_66,
+                O=>o(3));
+   
+end BEHAVIORAL;
+
+
+
+library ieee;
+use ieee.std_logic_1164.ALL;
+use ieee.numeric_std.ALL;
+library UNISIM;
+use UNISIM.Vcomponents.ALL;
+
+entity lab4_seven_segment_display is
+   port ( b          : in    std_logic_vector (15 downto 0); 
+          clk        : in    std_logic; 
+          pushbutton : in    std_logic; 
+          anode      : out   std_logic_vector (3 downto 0); 
+          cathode    : out   std_logic_vector (6 downto 0));
+end lab4_seven_segment_display;
+
+architecture BEHAVIORAL of lab4_seven_segment_display is
+   signal XLXN_8      : std_logic;
+   signal XLXN_17     : std_logic_vector (3 downto 0);
+   signal anode_DUMMY : std_logic_vector (3 downto 0);
+   component lab4mux16_MUSER_lab4_seven_segment_display
+      port ( b     : in    std_logic_vector (15 downto 0); 
+             anode : in    std_logic_vector (3 downto 0); 
+             o     : out   std_logic_vector (3 downto 0));
+   end component;
+   
+   component ringandmuxfinal_MUSER_lab4_seven_segment_display
+      port ( clk     : in    std_logic; 
+             slowclk : in    std_logic; 
+             mode    : in    std_logic; 
+             anode   : out   std_logic_vector (3 downto 0));
+   end component;
+   
+   component ALogic_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             A : out   std_logic);
+   end component;
+   
+   component BFinalFLogic_MUSER_lab4_seven_segment_display
+      port ( bin    : in    std_logic_vector (3 downto 0); 
+             Blogic : out   std_logic);
+   end component;
+   
+   component CLogic_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             C : out   std_logic);
+   end component;
+   
+   component DFinalFLogic_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             D : out   std_logic);
+   end component;
+   
+   component ELogicFFinal_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             E : out   std_logic);
+   end component;
+   
+   component FLogicFFinal_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             F : out   std_logic);
+   end component;
+   
+   component gcorrected_MUSER_lab4_seven_segment_display
+      port ( b : in    std_logic_vector (3 downto 0); 
+             G : out   std_logic);
+   end component;
+   
+   component finalclock_MUSER_lab4_seven_segment_display
+      port ( clk       : in    std_logic; 
+             slowclock : out   std_logic);
+   end component;
+   
+begin
+   anode(3 downto 0) <= anode_DUMMY(3 downto 0);
+   XLXI_1 : lab4mux16_MUSER_lab4_seven_segment_display
+      port map (anode(3 downto 0)=>anode_DUMMY(3 downto 0),
+                b(15 downto 0)=>b(15 downto 0),
+                o(3 downto 0)=>XLXN_17(3 downto 0));
+   
+   XLXI_2 : ringandmuxfinal_MUSER_lab4_seven_segment_display
+      port map (clk=>clk,
+                mode=>pushbutton,
+                slowclk=>XLXN_8,
+                anode(3 downto 0)=>anode_DUMMY(3 downto 0));
+   
+   XLXI_3 : ALogic_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                A=>cathode(0));
+   
+   XLXI_4 : BFinalFLogic_MUSER_lab4_seven_segment_display
+      port map (bin(3 downto 0)=>XLXN_17(3 downto 0),
+                Blogic=>cathode(1));
+   
+   XLXI_5 : CLogic_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                C=>cathode(2));
+   
+   XLXI_6 : DFinalFLogic_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                D=>cathode(3));
+   
+   XLXI_7 : ELogicFFinal_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                E=>cathode(4));
+   
+   XLXI_10 : FLogicFFinal_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                F=>cathode(5));
+   
+   XLXI_11 : gcorrected_MUSER_lab4_seven_segment_display
+      port map (b(3 downto 0)=>XLXN_17(3 downto 0),
+                G=>cathode(6));
+   
+   XLXI_12 : finalclock_MUSER_lab4_seven_segment_display
+      port map (clk=>clk,
+                slowclock=>XLXN_8);
+   
+end BEHAVIORAL;
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+
+entity lab6_multiplier is
+port(
+clk: in std_logic;
+in1: in std_logic_vector(7 downto 0);
+in2: in std_logic_vector(7 downto 0);
+display_button:in std_logic;
+multiplier_select:in std_logic_vector(1 downto 0);
+anode:out std_logic_vector(3 downto 0);
+cathode: out std_logic_vector(6 downto 0);
+product:out std_logic_vector(15 downto 0)
+);
+end lab6_multiplier;
+architecture BEHAVIORAL of lab6_smultiplier is
+signal R0:std_logic_vector(15 downto 0);
+signal R1:std_logic_vector(15 downto 0);
+signal R2:std_logic_vector(15 downto 0);
+signal MO:std_logic_vector(15 downto 0);
+
+begin
+
+
+
+
+

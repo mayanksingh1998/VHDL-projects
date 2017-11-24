@@ -1,0 +1,4 @@
+vhdl work "prioritencoder.vhf"
+vhdl work "multiplexer.vhf"
+vhdl work "decoder.vhf"
+vhdl work "lab2_port_switch.vhf"

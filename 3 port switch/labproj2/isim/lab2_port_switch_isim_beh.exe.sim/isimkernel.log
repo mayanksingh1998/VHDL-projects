@@ -1,0 +1,28 @@
+Command line:
+   lab2_port_switch_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  64784
+
+Wed Aug 23 20:02:07 2017
+
+
+ Elaboration Time: 0.125 sec
+
+ Current Memory Usage: 846.246 Meg
+
+ Total Signals          : 266
+ Total Nets             : 88
+ Total Signal Drivers   : 50
+ Total Blocks           : 59
+ Total Primitive Blocks : 52
+ Total Processes        : 50
+ Total Traceable Variables  : 13
+ Total Scalar Nets and Variables : 571
+
+ Total Simulation Time: 0.21875 sec
+
+ Current Memory Usage: 1003.53 Meg
+
+Wed Aug 23 20:07:54 2017
+
